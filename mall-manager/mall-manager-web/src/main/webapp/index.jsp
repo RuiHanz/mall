@@ -1,2600 +1,1117 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2019-7-16
-  Time: 21:26
+  Date: 2019-7-18
+  Time: 8:38
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<html lang="en">
+
 <head>
-    <title>海哥电脑城</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-    function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- Custom Theme files -->
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="css/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->
-    <link href="css/ken-burns.css" rel="stylesheet" type="text/css" media="all" /> <!-- banner slider -->
-    <link href="css/animate.min.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all"> <!-- carousel slider -->
-    <!-- //Custom Theme files -->
-    <!-- font-awesome icons -->
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <!-- //font-awesome icons -->
-    <!-- js -->
-    <script src="js/jquery-2.2.3.min.js"></script>
-    <!-- //js -->
-    <!-- web-fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Lovers+Quarrel' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
-    <!-- web-fonts -->
-    <script src="js/owl.carousel.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#owl-demo").owlCarousel({
-                autoPlay: 3000, //Set AutoPlay to 3 seconds
-                items :4,
-                itemsDesktop : [640,5],
-                itemsDesktopSmall : [480,2],
-                navigation : true
-
-            });
-        });
-    </script>
-    <script src="js/jquery-scrolltofixed-min.js" type="text/javascript"></script>
-    <script>
-        $(document).ready(function() {
-
-            // Dock the header to the top of the window when scrolled past the banner. This is the default behaviour.
-
-            $('.header-two').scrollToFixed();
-            // previous summary up the page.
-
-            var summaries = $('.summary');
-            summaries.each(function(i) {
-                var summary = $(summaries[i]);
-                var next = summaries[i + 1];
-
-                summary.scrollToFixed({
-                    marginTop: $('.header-two').outerHeight(true) + 10,
-                    zIndex: 999
-                });
-            });
-        });
-    </script>
-    <!-- start-smooth-scrolling -->
-    <script type="text/javascript" src="js/move-top.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
-                event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-            });
-        });
-    </script>
-    <!-- //end-smooth-scrolling -->
-    <!-- smooth-scrolling-of-move-up -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            var defaults = {
-                containerID: 'toTop', // fading element id
-                containerHoverID: 'toTopHover', // fading element hover id
-                scrollSpeed: 1200,
-                easingType: 'linear'
-            };
-
-            $().UItoTop({ easingType: 'easeOutQuart' });
-
-        });
-    </script>
-    <!-- //smooth-scrolling-of-move-up -->
-    <script src="js/bootstrap.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SB Admin - Start Bootstrap Template</title>
+    <!-- Bootstrap core CSS-->
+    <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="${pageContext.request.contextPath}/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="${pageContext.request.contextPath}/css/sb-admin.css" rel="stylesheet">
 </head>
-<body>
-<div class="agileits-modal modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-map-marker" aria-hidden="true"></i> 配送地点</h4>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.jsp">海哥电脑城后端管理</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-wrench"></i>
+                    <span class="nav-link-text">商品管理</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                    <li>
+                        <a href="商品发布.jsp">商品上架</a>
+                    </li>
+                    <li>
+                        <a href="tables.jsp">商品查询、下架及修改</a>
+                    </li>
+                    <li>
+                        <a href="添加品牌.jsp">添加品牌</a>
+                    </li>
+                    <li>
+                        <a href="品牌查删改.jsp">品牌查询、下架及修改</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-sitemap"></i>
+                    <span class="nav-link-text">用户管理</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMulti">
+                    <li>
+                        <a href="用户搜删改.jsp">用户查询、删除、封禁与解封</a>
+                    </li>
+                </ul>
+            </li>
+<%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">--%>
+<%--                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">--%>
+<%--                    <i class="fa fa-fw fa-sitemap"></i>--%>
+<%--                    <span class="nav-link-text">Menu Levels</span>--%>
+<%--                </a>--%>
+<%--                <ul class="sidenav-second-level collapse" id="collapseMulti">--%>
+<%--                    <li>--%>
+<%--                        <a href="#">Second Level Item</a>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <a href="#">Second Level Item</a>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <a href="#">Second Level Item</a>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>--%>
+<%--                        <ul class="sidenav-third-level collapse" id="collapseMulti2">--%>
+<%--                            <li>--%>
+<%--                                <a href="#">Third Level Item</a>--%>
+<%--                            </li>--%>
+<%--                            <li>--%>
+<%--                                <a href="#">Third Level Item</a>--%>
+<%--                            </li>--%>
+<%--                            <li>--%>
+<%--                                <a href="#">Third Level Item</a>--%>
+<%--                            </li>--%>
+<%--                        </ul>--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
+<%--            </li>--%>
+<%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">--%>
+<%--                <a class="nav-link" href="#">--%>
+<%--                    <i class="fa fa-fw fa-link"></i>--%>
+<%--                    <span class="nav-link-text">Link</span>--%>
+<%--                </a>--%>
+<%--            </li>--%>
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-envelope"></i>
+                    <span class="d-lg-none">信息
+              <span class="badge badge-pill badge-primary">12 New</span>
+            </span>
+                    <span class="indicator text-primary d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+                    <h6 class="dropdown-header">信息:</h6>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>David Miller</strong>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>Jane Smith</strong>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>John Doe</strong>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item small" href="#">View all messages</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-bell"></i>
+                    <span class="d-lg-none">Alerts
+              <span class="badge badge-pill badge-warning">6 New</span>
+            </span>
+                    <span class="indicator text-warning d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+                    <h6 class="dropdown-header">New Alerts:</h6>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+              <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
+              </span>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item small" href="#">View all alerts</a>
+                </div>
+            </li>
+<%--            <li class="nav-item">--%>
+<%--                <form class="form-inline my-2 my-lg-0 mr-lg-2">--%>
+<%--                    <div class="input-group">--%>
+<%--                        <input class="form-control" type="text" placeholder="Search for...">--%>
+<%--                        <span class="input-group-btn">--%>
+<%--                <button class="btn btn-primary" type="button">--%>
+<%--                  <i class="fa fa-search"></i>--%>
+<%--                </button>--%>
+<%--              </span>--%>
+<%--                    </div>--%>
+<%--                </form>--%>
+<%--            </li>--%>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">My Dashboard</li>
+        </ol>
+        <!-- Icon Cards-->
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-comments"></i>
+                        </div>
+                        <div class="mr-5">26 New Messages!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
             </div>
-            <div class="modal-body modal-body-sub">
-                <h5>选择你的收货大洲</h5>
-                <select class="form-control bfh-states" data-country="US" data-state="CA">
-                    <option value="">点我选择</option>
-                    <option value="AL">亚洲</option>
-                    <option value="AK">非洲</option>
-                    <option value="OK">大洋洲</option>
-                    <option value="OK">北美洲</option>
-                    <option value="OK">欧洲</option>
-                    <option value="OK">南极洲</option>
-                    <option value="OK">南美洲</option>
-                </select>
-                <input type="text" name="Name" placeholder="输入你的收货地点" required="">
-                <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">要买的时候再填</button>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-list"></i>
+                        </div>
+                        <div class="mr-5">11 New Tasks!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
             </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-success o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-shopping-cart"></i>
+                        </div>
+                        <div class="mr-5">123 New Orders!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-danger o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-support"></i>
+                        </div>
+                        <div class="mr-5">13 New Tickets!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Area Chart Example-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-area-chart"></i> Area Chart Example</div>
+            <div class="card-body">
+                <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Example Bar Chart Card-->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-8 my-auto">
+                                <canvas id="myBarChart" width="100" height="50"></canvas>
+                            </div>
+                            <div class="col-sm-4 text-center my-auto">
+                                <div class="h4 mb-0 text-primary">$34,693</div>
+                                <div class="small text-muted">YTD Revenue</div>
+                                <hr>
+                                <div class="h4 mb-0 text-warning">$18,474</div>
+                                <div class="small text-muted">YTD Expenses</div>
+                                <hr>
+                                <div class="h4 mb-0 text-success">$16,219</div>
+                                <div class="small text-muted">YTD Margin</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                </div>
+                <!-- Card Columns Example Social Feed-->
+                <div class="mb-0 mt-4">
+                    <i class="fa fa-newspaper-o"></i> News Feed</div>
+                <hr class="mt-2">
+                <div class="card-columns">
+                    <!-- Example Social Card-->
+                    <div class="card mb-3">
+                        <a href="#">
+                            <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
+                        </a>
+                        <div class="card-body">
+                            <h6 class="card-title mb-1"><a href="#">David Miller</a></h6>
+                            <p class="card-text small">These waves are looking pretty good today!
+                                <a href="#">#surfsup</a>
+                            </p>
+                        </div>
+                        <hr class="my-0">
+                        <div class="card-body py-2 small">
+                            <a class="mr-3 d-inline-block" href="#">
+                                <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                            <a class="mr-3 d-inline-block" href="#">
+                                <i class="fa fa-fw fa-comment"></i>Comment</a>
+                            <a class="d-inline-block" href="#">
+                                <i class="fa fa-fw fa-share"></i>Share</a>
+                        </div>
+                        <hr class="my-0">
+                        <div class="card-body small bg-faded">
+                            <div class="media">
+                                <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+                                <div class="media-body">
+                                    <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>Very nice! I wish I was there! That looks amazing!
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <a href="#">Like</a>
+                                        </li>
+                                        <li class="list-inline-item">·</li>
+                                        <li class="list-inline-item">
+                                            <a href="#">Reply</a>
+                                        </li>
+                                    </ul>
+                                    <div class="media mt-3">
+                                        <a class="d-flex pr-3" href="#">
+                                            <img src="http://placehold.it/45x45" alt="">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>Next time for sure!
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item">
+                                                    <a href="#">Like</a>
+                                                </li>
+                                                <li class="list-inline-item">·</li>
+                                                <li class="list-inline-item">
+                                                    <a href="#">Reply</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer small text-muted">Posted 32 mins ago</div>
+                    </div>
+                    <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >网站建设</a></div>
+                    <!-- Example Social Card-->
+                    <div class="card mb-3">
+                        <a href="#">
+                            <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=180" alt="">
+                        </a>
+                        <div class="card-body">
+                            <h6 class="card-title mb-1"><a href="#">John Smith</a></h6>
+                            <p class="card-text small">Another day at the office...
+                                <a href="#">#workinghardorhardlyworking</a>
+                            </p>
+                        </div>
+                        <hr class="my-0">
+                        <div class="card-body py-2 small">
+                            <a class="mr-3 d-inline-block" href="#">
+                                <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                            <a class="mr-3 d-inline-block" href="#">
+                                <i class="fa fa-fw fa-comment"></i>Comment</a>
+                            <a class="d-inline-block" href="#">
+                                <i class="fa fa-fw fa-share"></i>Share</a>
+                        </div>
+                        <hr class="my-0">
+                        <div class="card-body small bg-faded">
+                            <div class="media">
+                                <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+                                <div class="media-body">
+                                    <h6 class="mt-0 mb-1"><a href="#">Jessy Lucas</a></h6>Where did you get that camera?! I want one!
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <a href="#">Like</a>
+                                        </li>
+                                        <li class="list-inline-item">·</li>
+                                        <li class="list-inline-item">
+                                            <a href="#">Reply</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer small text-muted">Posted 46 mins ago</div>
+                    </div>
+                    <!-- Example Social Card-->
+                    <div class="card mb-3">
+                        <a href="#">
+                            <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=281" alt="">
+                        </a>
+                        <div class="card-body">
+                            <h6 class="card-title mb-1"><a href="#">Jeffery Wellings</a></h6>
+                            <p class="card-text small">Nice shot from the skate park!
+                                <a href="#">#kickflip</a>
+                                <a href="#">#holdmybeer</a>
+                                <a href="#">#igotthis</a>
+                            </p>
+                        </div>
+                        <hr class="my-0">
+                        <div class="card-body py-2 small">
+                            <a class="mr-3 d-inline-block" href="#">
+                                <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                            <a class="mr-3 d-inline-block" href="#">
+                                <i class="fa fa-fw fa-comment"></i>Comment</a>
+                            <a class="d-inline-block" href="#">
+                                <i class="fa fa-fw fa-share"></i>Share</a>
+                        </div>
+                        <div class="card-footer small text-muted">Posted 1 hr ago</div>
+                    </div>
+                    <!-- Example Social Card-->
+                    <div class="card mb-3">
+                        <a href="#">
+                            <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=185" alt="">
+                        </a>
+                        <div class="card-body">
+                            <h6 class="card-title mb-1"><a href="#">David Miller</a></h6>
+                            <p class="card-text small">It's hot, and I might be lost...
+                                <a href="#">#desert</a>
+                                <a href="#">#water</a>
+                                <a href="#">#anyonehavesomewater</a>
+                                <a href="#">#noreally</a>
+                                <a href="#">#thirsty</a>
+                                <a href="#">#dehydration</a>
+                            </p>
+                        </div>
+                        <hr class="my-0">
+                        <div class="card-body py-2 small">
+                            <a class="mr-3 d-inline-block" href="#">
+                                <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                            <a class="mr-3 d-inline-block" href="#">
+                                <i class="fa fa-fw fa-comment"></i>Comment</a>
+                            <a class="d-inline-block" href="#">
+                                <i class="fa fa-fw fa-share"></i>Share</a>
+                        </div>
+                        <hr class="my-0">
+                        <div class="card-body small bg-faded">
+                            <div class="media">
+                                <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+                                <div class="media-body">
+                                    <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>The oasis is a mile that way, or is that just a mirage?
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <a href="#">Like</a>
+                                        </li>
+                                        <li class="list-inline-item">·</li>
+                                        <li class="list-inline-item">
+                                            <a href="#">Reply</a>
+                                        </li>
+                                    </ul>
+                                    <div class="media mt-3">
+                                        <a class="d-flex pr-3" href="#">
+                                            <img src="http://placehold.it/45x45" alt="">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>
+                                            <img class="img-fluid w-100 mb-1" src="https://unsplash.it/700/450?image=789" alt="">I'm saved, I found a cactus. How do I open this thing?
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item">
+                                                    <a href="#">Like</a>
+                                                </li>
+                                                <li class="list-inline-item">·</li>
+                                                <li class="list-inline-item">
+                                                    <a href="#">Reply</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer small text-muted">Posted yesterday</div>
+                    </div>
+                </div>
+                <!-- /Card Columns-->
+            </div>
+            <div class="col-lg-4">
+                <!-- Example Pie Chart Card-->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
+                    <div class="card-body">
+                        <canvas id="myPieChart" width="100%" height="100"></canvas>
+                    </div>
+                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                </div>
+                <!-- Example Notifications Card-->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bell-o"></i> Feed Example</div>
+                    <div class="list-group list-group-flush small">
+                        <a class="list-group-item list-group-item-action" href="#">
+                            <div class="media">
+                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                                <div class="media-body">
+                                    <strong>David Miller</strong>posted a new article to
+                                    <strong>David Miller Website</strong>.
+                                    <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="#">
+                            <div class="media">
+                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                                <div class="media-body">
+                                    <strong>Samantha King</strong>sent you a new message!
+                                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="#">
+                            <div class="media">
+                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                                <div class="media-body">
+                                    <strong>Jeffery Wellings</strong>added a new photo to the album
+                                    <strong>Beach</strong>.
+                                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="#">
+                            <div class="media">
+                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                                <div class="media-body">
+                                    <i class="fa fa-code-fork"></i>
+                                    <strong>Monica Dennis</strong>forked the
+                                    <strong>startbootstrap-sb-admin</strong>repository on
+                                    <strong>GitHub</strong>.
+                                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
+                    </div>
+                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                </div>
+            </div>
+        </div>
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i> Data Table Example</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                            <td>$170,750</td>
+                        </tr>
+                        <tr>
+                            <td>Ashton Cox</td>
+                            <td>Junior Technical Author</td>
+                            <td>San Francisco</td>
+                            <td>66</td>
+                            <td>2009/01/12</td>
+                            <td>$86,000</td>
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td>Senior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>22</td>
+                            <td>2012/03/29</td>
+                            <td>$433,060</td>
+                        </tr>
+                        <tr>
+                            <td>Airi Satou</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>33</td>
+                            <td>2008/11/28</td>
+                            <td>$162,700</td>
+                        </tr>
+                        <tr>
+                            <td>Brielle Williamson</td>
+                            <td>Integration Specialist</td>
+                            <td>New York</td>
+                            <td>61</td>
+                            <td>2012/12/02</td>
+                            <td>$372,000</td>
+                        </tr>
+                        <tr>
+                            <td>Herrod Chandler</td>
+                            <td>Sales Assistant</td>
+                            <td>San Francisco</td>
+                            <td>59</td>
+                            <td>2012/08/06</td>
+                            <td>$137,500</td>
+                        </tr>
+                        <tr>
+                            <td>Rhona Davidson</td>
+                            <td>Integration Specialist</td>
+                            <td>Tokyo</td>
+                            <td>55</td>
+                            <td>2010/10/14</td>
+                            <td>$327,900</td>
+                        </tr>
+                        <tr>
+                            <td>Colleen Hurst</td>
+                            <td>Javascript Developer</td>
+                            <td>San Francisco</td>
+                            <td>39</td>
+                            <td>2009/09/15</td>
+                            <td>$205,500</td>
+                        </tr>
+                        <tr>
+                            <td>Sonya Frost</td>
+                            <td>Software Engineer</td>
+                            <td>Edinburgh</td>
+                            <td>23</td>
+                            <td>2008/12/13</td>
+                            <td>$103,600</td>
+                        </tr>
+                        <tr>
+                            <td>Jena Gaines</td>
+                            <td>Office Manager</td>
+                            <td>London</td>
+                            <td>30</td>
+                            <td>2008/12/19</td>
+                            <td>$90,560</td>
+                        </tr>
+                        <tr>
+                            <td>Quinn Flynn</td>
+                            <td>Support Lead</td>
+                            <td>Edinburgh</td>
+                            <td>22</td>
+                            <td>2013/03/03</td>
+                            <td>$342,000</td>
+                        </tr>
+                        <tr>
+                            <td>Charde Marshall</td>
+                            <td>Regional Director</td>
+                            <td>San Francisco</td>
+                            <td>36</td>
+                            <td>2008/10/16</td>
+                            <td>$470,600</td>
+                        </tr>
+                        <tr>
+                            <td>Haley Kennedy</td>
+                            <td>Senior Marketing Designer</td>
+                            <td>London</td>
+                            <td>43</td>
+                            <td>2012/12/18</td>
+                            <td>$313,500</td>
+                        </tr>
+                        <tr>
+                            <td>Tatyana Fitzpatrick</td>
+                            <td>Regional Director</td>
+                            <td>London</td>
+                            <td>19</td>
+                            <td>2010/03/17</td>
+                            <td>$385,750</td>
+                        </tr>
+                        <tr>
+                            <td>Michael Silva</td>
+                            <td>Marketing Designer</td>
+                            <td>London</td>
+                            <td>66</td>
+                            <td>2012/11/27</td>
+                            <td>$198,500</td>
+                        </tr>
+                        <tr>
+                            <td>Paul Byrd</td>
+                            <td>Chief Financial Officer (CFO)</td>
+                            <td>New York</td>
+                            <td>64</td>
+                            <td>2010/06/09</td>
+                            <td>$725,000</td>
+                        </tr>
+                        <tr>
+                            <td>Gloria Little</td>
+                            <td>Systems Administrator</td>
+                            <td>New York</td>
+                            <td>59</td>
+                            <td>2009/04/10</td>
+                            <td>$237,500</td>
+                        </tr>
+                        <tr>
+                            <td>Bradley Greer</td>
+                            <td>Software Engineer</td>
+                            <td>London</td>
+                            <td>41</td>
+                            <td>2012/10/13</td>
+                            <td>$132,000</td>
+                        </tr>
+                        <tr>
+                            <td>Dai Rios</td>
+                            <td>Personnel Lead</td>
+                            <td>Edinburgh</td>
+                            <td>35</td>
+                            <td>2012/09/26</td>
+                            <td>$217,500</td>
+                        </tr>
+                        <tr>
+                            <td>Jenette Caldwell</td>
+                            <td>Development Lead</td>
+                            <td>New York</td>
+                            <td>30</td>
+                            <td>2011/09/03</td>
+                            <td>$345,000</td>
+                        </tr>
+                        <tr>
+                            <td>Yuri Berry</td>
+                            <td>Chief Marketing Officer (CMO)</td>
+                            <td>New York</td>
+                            <td>40</td>
+                            <td>2009/06/25</td>
+                            <td>$675,000</td>
+                        </tr>
+                        <tr>
+                            <td>Caesar Vance</td>
+                            <td>Pre-Sales Support</td>
+                            <td>New York</td>
+                            <td>21</td>
+                            <td>2011/12/12</td>
+                            <td>$106,450</td>
+                        </tr>
+                        <tr>
+                            <td>Doris Wilder</td>
+                            <td>Sales Assistant</td>
+                            <td>Sidney</td>
+                            <td>23</td>
+                            <td>2010/09/20</td>
+                            <td>$85,600</td>
+                        </tr>
+                        <tr>
+                            <td>Angelica Ramos</td>
+                            <td>Chief Executive Officer (CEO)</td>
+                            <td>London</td>
+                            <td>47</td>
+                            <td>2009/10/09</td>
+                            <td>$1,200,000</td>
+                        </tr>
+                        <tr>
+                            <td>Gavin Joyce</td>
+                            <td>Developer</td>
+                            <td>Edinburgh</td>
+                            <td>42</td>
+                            <td>2010/12/22</td>
+                            <td>$92,575</td>
+                        </tr>
+                        <tr>
+                            <td>Jennifer Chang</td>
+                            <td>Regional Director</td>
+                            <td>Singapore</td>
+                            <td>28</td>
+                            <td>2010/11/14</td>
+                            <td>$357,650</td>
+                        </tr>
+                        <tr>
+                            <td>Brenden Wagner</td>
+                            <td>Software Engineer</td>
+                            <td>San Francisco</td>
+                            <td>28</td>
+                            <td>2011/06/07</td>
+                            <td>$206,850</td>
+                        </tr>
+                        <tr>
+                            <td>Fiona Green</td>
+                            <td>Chief Operating Officer (COO)</td>
+                            <td>San Francisco</td>
+                            <td>48</td>
+                            <td>2010/03/11</td>
+                            <td>$850,000</td>
+                        </tr>
+                        <tr>
+                            <td>Shou Itou</td>
+                            <td>Regional Marketing</td>
+                            <td>Tokyo</td>
+                            <td>20</td>
+                            <td>2011/08/14</td>
+                            <td>$163,000</td>
+                        </tr>
+                        <tr>
+                            <td>Michelle House</td>
+                            <td>Integration Specialist</td>
+                            <td>Sidney</td>
+                            <td>37</td>
+                            <td>2011/06/02</td>
+                            <td>$95,400</td>
+                        </tr>
+                        <tr>
+                            <td>Suki Burks</td>
+                            <td>Developer</td>
+                            <td>London</td>
+                            <td>53</td>
+                            <td>2009/10/22</td>
+                            <td>$114,500</td>
+                        </tr>
+                        <tr>
+                            <td>Prescott Bartlett</td>
+                            <td>Technical Author</td>
+                            <td>London</td>
+                            <td>27</td>
+                            <td>2011/05/07</td>
+                            <td>$145,000</td>
+                        </tr>
+                        <tr>
+                            <td>Gavin Cortez</td>
+                            <td>Team Leader</td>
+                            <td>San Francisco</td>
+                            <td>22</td>
+                            <td>2008/10/26</td>
+                            <td>$235,500</td>
+                        </tr>
+                        <tr>
+                            <td>Martena Mccray</td>
+                            <td>Post-Sales support</td>
+                            <td>Edinburgh</td>
+                            <td>46</td>
+                            <td>2011/03/09</td>
+                            <td>$324,050</td>
+                        </tr>
+                        <tr>
+                            <td>Unity Butler</td>
+                            <td>Marketing Designer</td>
+                            <td>San Francisco</td>
+                            <td>47</td>
+                            <td>2009/12/09</td>
+                            <td>$85,675</td>
+                        </tr>
+                        <tr>
+                            <td>Howard Hatfield</td>
+                            <td>Office Manager</td>
+                            <td>San Francisco</td>
+                            <td>51</td>
+                            <td>2008/12/16</td>
+                            <td>$164,500</td>
+                        </tr>
+                        <tr>
+                            <td>Hope Fuentes</td>
+                            <td>Secretary</td>
+                            <td>San Francisco</td>
+                            <td>41</td>
+                            <td>2010/02/12</td>
+                            <td>$109,850</td>
+                        </tr>
+                        <tr>
+                            <td>Vivian Harrell</td>
+                            <td>Financial Controller</td>
+                            <td>San Francisco</td>
+                            <td>62</td>
+                            <td>2009/02/14</td>
+                            <td>$452,500</td>
+                        </tr>
+                        <tr>
+                            <td>Timothy Mooney</td>
+                            <td>Office Manager</td>
+                            <td>London</td>
+                            <td>37</td>
+                            <td>2008/12/11</td>
+                            <td>$136,200</td>
+                        </tr>
+                        <tr>
+                            <td>Jackson Bradshaw</td>
+                            <td>Director</td>
+                            <td>New York</td>
+                            <td>65</td>
+                            <td>2008/09/26</td>
+                            <td>$645,750</td>
+                        </tr>
+                        <tr>
+                            <td>Olivia Liang</td>
+                            <td>Support Engineer</td>
+                            <td>Singapore</td>
+                            <td>64</td>
+                            <td>2011/02/03</td>
+                            <td>$234,500</td>
+                        </tr>
+                        <tr>
+                            <td>Bruno Nash</td>
+                            <td>Software Engineer</td>
+                            <td>London</td>
+                            <td>38</td>
+                            <td>2011/05/03</td>
+                            <td>$163,500</td>
+                        </tr>
+                        <tr>
+                            <td>Sakura Yamamoto</td>
+                            <td>Support Engineer</td>
+                            <td>Tokyo</td>
+                            <td>37</td>
+                            <td>2009/08/19</td>
+                            <td>$139,575</td>
+                        </tr>
+                        <tr>
+                            <td>Thor Walton</td>
+                            <td>Developer</td>
+                            <td>New York</td>
+                            <td>61</td>
+                            <td>2013/08/11</td>
+                            <td>$98,540</td>
+                        </tr>
+                        <tr>
+                            <td>Finn Camacho</td>
+                            <td>Support Engineer</td>
+                            <td>San Francisco</td>
+                            <td>47</td>
+                            <td>2009/07/07</td>
+                            <td>$87,500</td>
+                        </tr>
+                        <tr>
+                            <td>Serge Baldwin</td>
+                            <td>Data Coordinator</td>
+                            <td>Singapore</td>
+                            <td>64</td>
+                            <td>2012/04/09</td>
+                            <td>$138,575</td>
+                        </tr>
+                        <tr>
+                            <td>Zenaida Frank</td>
+                            <td>Software Engineer</td>
+                            <td>New York</td>
+                            <td>63</td>
+                            <td>2010/01/04</td>
+                            <td>$125,250</td>
+                        </tr>
+                        <tr>
+                            <td>Zorita Serrano</td>
+                            <td>Software Engineer</td>
+                            <td>San Francisco</td>
+                            <td>56</td>
+                            <td>2012/06/01</td>
+                            <td>$115,000</td>
+                        </tr>
+                        <tr>
+                            <td>Jennifer Acosta</td>
+                            <td>Junior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>43</td>
+                            <td>2013/02/01</td>
+                            <td>$75,650</td>
+                        </tr>
+                        <tr>
+                            <td>Cara Stevens</td>
+                            <td>Sales Assistant</td>
+                            <td>New York</td>
+                            <td>46</td>
+                            <td>2011/12/06</td>
+                            <td>$145,600</td>
+                        </tr>
+                        <tr>
+                            <td>Hermione Butler</td>
+                            <td>Regional Director</td>
+                            <td>London</td>
+                            <td>47</td>
+                            <td>2011/03/21</td>
+                            <td>$356,250</td>
+                        </tr>
+                        <tr>
+                            <td>Lael Greer</td>
+                            <td>Systems Administrator</td>
+                            <td>London</td>
+                            <td>21</td>
+                            <td>2009/02/27</td>
+                            <td>$103,500</td>
+                        </tr>
+                        <tr>
+                            <td>Jonas Alexander</td>
+                            <td>Developer</td>
+                            <td>San Francisco</td>
+                            <td>30</td>
+                            <td>2010/07/14</td>
+                            <td>$86,500</td>
+                        </tr>
+                        <tr>
+                            <td>Shad Decker</td>
+                            <td>Regional Director</td>
+                            <td>Edinburgh</td>
+                            <td>51</td>
+                            <td>2008/11/13</td>
+                            <td>$183,000</td>
+                        </tr>
+                        <tr>
+                            <td>Michael Bruce</td>
+                            <td>Javascript Developer</td>
+                            <td>Singapore</td>
+                            <td>29</td>
+                            <td>2011/06/27</td>
+                            <td>$183,000</td>
+                        </tr>
+                        <tr>
+                            <td>Donna Snider</td>
+                            <td>Customer Support</td>
+                            <td>New York</td>
+                            <td>27</td>
+                            <td>2011/01/25</td>
+                            <td>$112,000</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
     </div>
-</div>
-<script>
-    $('#myModal88').modal('show');
-</script>
-<!-- header -->
-<div class="header">
-    <div class="w3ls-header"><!--header-one-->
-        <div class="w3ls-header-left">
-            <p><a href="#">海哥给您请安了！！！！</a></p>
-        </div>
-        <div class="w3ls-header-right">
-            <ul>
-                <li class="dropdown head-dpdn">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 我的账户<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="login.jsp">登录 </a></li>
-                        <li><a href="signup.jsp">注册</a></li>
-                        <li><a href="login.jsp">我的订单</a></li>
-                        <li><a href="login.jsp">我的钱包</a></li>
-                        <li><a href='http://localhost:8080/商品专区-发布商品.jsp'>发布商品</a></li>
-                        <li><a href='http://localhost:8080/商品专区-查询修改及删除商品.jsp'>增删改查</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown head-dpdn">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> 今日交易<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="offers.jsp">现金返还优惠</a></li>
-                        <li><a href="offers.jsp">折扣商品</a></li>
-                        <li><a href="offers.jsp">特价商品</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown head-dpdn">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> 折扣券<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="offers.jsp">限时卡券</a></li>
-                        <li><a href="offers.jsp">卡券册</a></li>
-                        <li><a href="offers.jsp">查看余额</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown head-dpdn">
-                    <a href="contact.jspF" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
-                </li>
-                <li class="dropdown head-dpdn">
-                    <a href="card.jsp" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
-                </li>
-                <li class="dropdown head-dpdn">
-                    <a href="help.jsp" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
-                </li>
-            </ul>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-    <div class="header-two"><!-- header-two -->
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
         <div class="container">
-            <div class="header-logo">
-                <h1><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h1>
-                <h6>你的商店，你做主</h6>
+            <div class="text-center">
+                <small>Copyright © Your Website 2017 / More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></small>
             </div>
-            <div class="header-search">
-                <form action="#" method="post">
-                    <input type="search" name="Search" placeholder="海哥帮你找......" required="">
-                    <button type="submit" class="btn btn-default" aria-label="Left Align">
-                        <i class="fa fa-search" aria-hidden="true"> </i>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
                     </button>
-                </form>
-            </div>
-            <div class="header-cart">
-                <div class="my-account">
-                    <a href="contact.jsp"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
                 </div>
-                <div class="cart">
-                    <form action="#" method="post" class="last">
-                        <input type="hidden" name="cmd" value="_cart" />
-                        <input type="hidden" name="display" value="1" />
-                        <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-                    </form>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div><!-- //header-two -->
-    <div class="header-three"><!-- header-three -->
-        <div class="container">
-            <div class="menu">
-                <div class="cd-dropdown-wrapper">
-                    <a class="cd-dropdown-trigger" href="#0">商品目录</a>
-                    <nav class="cd-dropdown">
-                        <a href="#0" class="cd-close">Close</a>
-                        <ul class="cd-dropdown-content">
-                            <li><a href="offers.jsp">今日优惠</a></li>
-                            <li class="has-children">
-                                <a href="#">笔记本</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="#">菜单</a></li>
-                                    <li class="see-all"><a href="products.jsp">全部笔记本</a></li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本1</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#0">笔记本款式</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">分离屏幕</a></li>
-                                                    <li><a href="products.jsp">没有显示屏</a></li>
-                                                    <li><a href="products.jsp">电源自带</a></li>
-                                                </ul>
-                                            </li>
-                                            <li> <a href="products.jsp">笔笔</a> </li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本2</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品 </a></li>
-                                            <li><a href="products.jsp">笔笔</a></li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本3</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#">电脑</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">商品 </a></li>
-                                                    <li><a href="products.jsp">商品 PC</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本4</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本5</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品1</a></li>
-                                                    <li><a href="products.jsp">商品2</a></li>
-                                                    <li><a href="products.jsp">商品3</a></li>
-                                                    <li><a href="products.jsp">商品4</a></li>
-                                                    <li><a href="products.jsp">商品5</a></li>
-                                                    <li><a href="products.jsp">商品6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本6</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">cables</a></li>
-                                        </ul>
-                                    </li>
-                                </ul> <!-- .cd-secondary-dropdown -->
-                            </li> <!-- .has-children -->
-                            <li class="has-children">
-                                <a href="#">台式机</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="#">Menu</a></li>
-                                    <li class="see-all"><a href="products1.jsp">全部台式机</a></li>
-                                    <li class="has-children">
-                                        <a href="#">台式机1</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#0">笔记本款式</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">分离屏幕</a></li>
-                                                    <li><a href="products.jsp">没有显示屏</a></li>
-                                                    <li><a href="products.jsp">电源自带</a></li>
-                                                </ul>
-                                            </li>
-                                            <li> <a href="products.jsp">笔笔</a> </li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">台式机2</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品 </a></li>
-                                            <li><a href="products.jsp">笔笔</a></li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">台式机3</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#">电脑</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">商品 </a></li>
-                                                    <li><a href="products.jsp">商品 PC</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">台式机4</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">台式机5</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品1</a></li>
-                                                    <li><a href="products.jsp">商品2</a></li>
-                                                    <li><a href="products.jsp">商品3</a></li>
-                                                    <li><a href="products.jsp">商品4</a></li>
-                                                    <li><a href="products.jsp">商品5</a></li>
-                                                    <li><a href="products.jsp">商品6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">台式机6</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">cables</a></li>
-                                        </ul>
-                                    </li>
-                                </ul> <!-- .cd-secondary-dropdown -->
-                            </li> <!-- .has-children -->
-                            <li class="has-children">
-                                <a href="products2.jsp">服务器/工作站</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="#">Menu</a></li>
-                                    <li class="see-all"><a href="products2.jsp">全部服务器/工作站</a></li>
-                                    <li class="has-children">
-                                        <a href="#">服务器1</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#0">笔记本款式</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">分离屏幕</a></li>
-                                                    <li><a href="products.jsp">没有显示屏</a></li>
-                                                    <li><a href="products.jsp">电源自带</a></li>
-                                                </ul>
-                                            </li>
-                                            <li> <a href="products.jsp">笔笔</a> </li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">服务器2</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品 </a></li>
-                                            <li><a href="products.jsp">笔笔</a></li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">服务器3</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#">电脑</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">商品 </a></li>
-                                                    <li><a href="products.jsp">商品 PC</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">工作站4</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">工作站5</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品1</a></li>
-                                                    <li><a href="products.jsp">商品2</a></li>
-                                                    <li><a href="products.jsp">商品3</a></li>
-                                                    <li><a href="products.jsp">商品4</a></li>
-                                                    <li><a href="products.jsp">商品5</a></li>
-                                                    <li><a href="products.jsp">商品6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">工作站6</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">cables</a></li>
-                                        </ul>
-                                    </li>
-                                </ul><!-- .cd-secondary-dropdown -->
-                            </li> <!-- .has-children -->
-                            <li class="has-children">
-                                <a href="#">CPU</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="#">Menu</a></li>
-                                    <li class="see-all"><a href="products3.jsp">全部CPU</a></li>
-                                    <li class="has-children">
-                                        <a href="#">CPU1</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#0">笔记本款式</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">分离屏幕</a></li>
-                                                    <li><a href="products.jsp">没有显示屏</a></li>
-                                                    <li><a href="products.jsp">电源自带</a></li>
-                                                </ul>
-                                            </li>
-                                            <li> <a href="products.jsp">笔笔</a> </li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">CPU2</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品 </a></li>
-                                            <li><a href="products.jsp">笔笔</a></li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">CPU3</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#">电脑</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">商品 </a></li>
-                                                    <li><a href="products.jsp">商品 PC</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">CPU4</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">CPU5</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品1</a></li>
-                                                    <li><a href="products.jsp">商品2</a></li>
-                                                    <li><a href="products.jsp">商品3</a></li>
-                                                    <li><a href="products.jsp">商品4</a></li>
-                                                    <li><a href="products.jsp">商品5</a></li>
-                                                    <li><a href="products.jsp">商品6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">CPU6</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">cables</a></li>
-                                        </ul>
-                                    </li>
-                                </ul><!-- .cd-secondary-dropdown -->
-                            </li> <!-- .has-children -->
-                            <li class="has-children">
-                                <a href="#">SSD硬盘</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="#">Menu</a></li>
-                                    <li class="see-all"><a href="products4.jsp">全部硬盘</a></li>
-                                    <li class="has-children">
-                                        <a href="#">SSD硬盘1</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#0">笔记本款式</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">分离屏幕</a></li>
-                                                    <li><a href="products.jsp">没有显示屏</a></li>
-                                                    <li><a href="products.jsp">电源自带</a></li>
-                                                </ul>
-                                            </li>
-                                            <li> <a href="products.jsp">笔笔</a> </li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">SSD硬盘2</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品 </a></li>
-                                            <li><a href="products.jsp">笔笔</a></li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">SSD硬盘3</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#">电脑</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">商品 </a></li>
-                                                    <li><a href="products.jsp">商品 PC</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">SSD硬盘4</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">SSD硬盘5</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品1</a></li>
-                                                    <li><a href="products.jsp">商品2</a></li>
-                                                    <li><a href="products.jsp">商品3</a></li>
-                                                    <li><a href="products.jsp">商品4</a></li>
-                                                    <li><a href="products.jsp">商品5</a></li>
-                                                    <li><a href="products.jsp">商品6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">SSD硬盘6</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">cables</a></li>
-                                        </ul>
-                                    </li>
-                                </ul><!-- .cd-secondary-dropdown -->
-                            </li> <!-- .has-children -->
-                            <li class="has-children">
-                                <a href="#">显示器</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="#">Menu</a></li>
-                                    <li class="see-all"><a href="products5.jsp">全部显示器</a></li>
-                                    <li class="has-children">
-                                        <a href="#">显示器1</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#0">笔记本款式</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">分离屏幕</a></li>
-                                                    <li><a href="products.jsp">没有显示屏</a></li>
-                                                    <li><a href="products.jsp">电源自带</a></li>
-                                                </ul>
-                                            </li>
-                                            <li> <a href="products.jsp">笔笔</a> </li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">显示器2</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品 </a></li>
-                                            <li><a href="products.jsp">笔笔</a></li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">显示器3</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#">电脑</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">商品 </a></li>
-                                                    <li><a href="products.jsp">商品 PC</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">显示器4</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">显示器5</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品1</a></li>
-                                                    <li><a href="products.jsp">商品2</a></li>
-                                                    <li><a href="products.jsp">商品3</a></li>
-                                                    <li><a href="products.jsp">商品4</a></li>
-                                                    <li><a href="products.jsp">商品5</a></li>
-                                                    <li><a href="products.jsp">商品6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">显示器6</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">cables</a></li>
-                                        </ul>
-                                    </li>
-                                </ul><!-- .cd-secondary-dropdown -->
-                            </li> <!-- .has-children -->
-                            <li class="has-children">
-                                <a href="#">显卡</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="#">Menu</a></li>
-                                    <li class="see-all"><a href="products6.jsp">全部显卡</a></li>
-                                    <li class="has-children">
-                                        <a href="#">显卡1</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#0">笔记本款式</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">分离屏幕</a></li>
-                                                    <li><a href="products.jsp">没有显示屏</a></li>
-                                                    <li><a href="products.jsp">电源自带</a></li>
-                                                </ul>
-                                            </li>
-                                            <li> <a href="products.jsp">笔笔</a> </li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">显卡2</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品 </a></li>
-                                            <li><a href="products.jsp">笔笔</a></li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">显卡3</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#">电脑</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">商品 </a></li>
-                                                    <li><a href="products.jsp">商品 PC</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">显卡4</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">显卡5</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品1</a></li>
-                                                    <li><a href="products.jsp">商品2</a></li>
-                                                    <li><a href="products.jsp">商品3</a></li>
-                                                    <li><a href="products.jsp">商品4</a></li>
-                                                    <li><a href="products.jsp">商品5</a></li>
-                                                    <li><a href="products.jsp">商品6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">显卡6</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">cables</a></li>
-                                        </ul>
-                                    </li>
-                                </ul><!-- .cd-secondary-dropdown -->
-                            </li>
-                            <li class="has-children">
-                                <a href="#">机箱</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="#">Menu</a></li>
-                                    <li class="see-all"><a href="products7.jsp">全部机箱</a></li>
-                                    <li class="has-children">
-                                        <a href="#">机箱1</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#0">笔记本款式</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">分离屏幕</a></li>
-                                                    <li><a href="products.jsp">没有显示屏</a></li>
-                                                    <li><a href="products.jsp">电源自带</a></li>
-                                                </ul>
-                                            </li>
-                                            <li> <a href="products.jsp">笔笔</a> </li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">机箱2</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品 </a></li>
-                                            <li><a href="products.jsp">笔笔</a></li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">机箱3</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#">电脑</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">商品 </a></li>
-                                                    <li><a href="products.jsp">商品 PC</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">机箱4</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">机箱5</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品1</a></li>
-                                                    <li><a href="products.jsp">商品2</a></li>
-                                                    <li><a href="products.jsp">商品3</a></li>
-                                                    <li><a href="products.jsp">商品4</a></li>
-                                                    <li><a href="products.jsp">商品5</a></li>
-                                                    <li><a href="products.jsp">商品6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">机箱6</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">cables</a></li>
-                                        </ul>
-                                    </li>
-                                </ul><!-- .cd-secondary-dropdown -->
-                            </li>
-                            <li class="has-children">
-                                <a href="#">鼠标</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="#">Menu</a></li>
-                                    <li class="see-all"><a href="products8.jsp">全部鼠标</a></li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本1</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#0">笔记本款式</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">分离屏幕</a></li>
-                                                    <li><a href="products.jsp">没有显示屏</a></li>
-                                                    <li><a href="products.jsp">电源自带</a></li>
-                                                </ul>
-                                            </li>
-                                            <li> <a href="products.jsp">笔笔</a> </li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本2</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品 </a></li>
-                                            <li><a href="products.jsp">笔笔</a></li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本3</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#">电脑</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">商品 </a></li>
-                                                    <li><a href="products.jsp">商品 PC</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本4</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本5</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品1</a></li>
-                                                    <li><a href="products.jsp">商品2</a></li>
-                                                    <li><a href="products.jsp">商品3</a></li>
-                                                    <li><a href="products.jsp">商品4</a></li>
-                                                    <li><a href="products.jsp">商品5</a></li>
-                                                    <li><a href="products.jsp">商品6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">笔记本6</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">cables</a></li>
-                                        </ul>
-                                    </li>
-                                </ul><!-- .cd-secondary-dropdown -->
-                            </li>
-                            <li class="has-children">
-                                <a href="#">键盘</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="#">Menu</a></li>
-                                    <li class="see-all"><a href="products9.jsp">全部键盘</a></li>
-                                    <li class="has-children">
-                                        <a href="#">键盘1</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#0">键盘款式</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">分离屏幕</a></li>
-                                                    <li><a href="products.jsp">没有显示屏</a></li>
-                                                    <li><a href="products.jsp">电源自带</a></li>
-                                                </ul>
-                                            </li>
-                                            <li> <a href="products.jsp">笔笔</a> </li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">键盘</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">键盘2</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品 </a></li>
-                                            <li><a href="products.jsp">笔笔</a></li>
-                                            <li><a href="products.jsp">记记</a></li>
-                                            <li><a href="products.jsp">本本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                            <li><a href="products.jsp">笔记本</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">键盘3</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#">全部商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children">
-                                                <a href="#">电脑</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#"> </a></li>
-                                                    <li><a href="products.jsp">商品 </a></li>
-                                                    <li><a href="products.jsp">商品 PC</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">键盘4</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                    <li><a href="products.jsp">商品</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">键盘5</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li class="has-children"><a href="#">商品</a>
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="#0"> </a></li>
-                                                    <li><a href="products.jsp">商品1</a></li>
-                                                    <li><a href="products.jsp">商品2</a></li>
-                                                    <li><a href="products.jsp">商品3</a></li>
-                                                    <li><a href="products.jsp">商品4</a></li>
-                                                    <li><a href="products.jsp">商品5</a></li>
-                                                    <li><a href="products.jsp">商品6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">键盘6</a>
-                                        <ul class="is-hidden">
-                                            <li class="go-back"><a href="#0">全部商品 </a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">商品</a></li>
-                                            <li><a href="products.jsp">cables</a></li>
-                                        </ul>
-                                    </li>
-                                </ul><!-- .cd-secondary-dropdown -->
-                            </li>
-                            <li><a href="sitemap.jsp">商品大全 </a></li>
-                        </ul> <!-- .cd-dropdown-content -->
-                    </nav> <!-- .cd-dropdown -->
-                </div> <!-- .cd-dropdown-wrapper -->
-            </div>
-            <div class="move-text">
-                <div class="marquee"><a href="offers.jsp"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
-                <script type="text/javascript" src="js/jquery.marquee.min.js"></script>
-                <script>
-                    $('.marquee').marquee({ pauseOnHover: true });
-                    //@ sourceURL=pen.js
-                </script>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- //header -->
-<!-- banner -->
-<div class="banner">
-    <div id="kb" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
-        <!-- Wrapper-for-Slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active"><!-- First-Slide -->
-                <img src="images/5.jpg" alt="" class="img-responsive" />
-                <div class="carousel-caption kb_caption kb_caption_right">
-                    <h3 data-animation="animated flipInX">商品 <span>50%</span> 折扣</h3>
-                    <h4 data-animation="animated flipInX">仅限今日热卖</h4>
-                </div>
-            </div>
-            <div class="item"> <!-- Second-Slide -->
-                <img src="images/8.jpg" alt="" class="img-responsive" />
-                <div class="carousel-caption kb_caption kb_caption_right">
-                    <h3 data-animation="animated fadeInDown">我们有最新最热的科技产品</h3>
-                    <h4 data-animation="animated fadeInUp">暑假大放送 物美又价廉</h4>
-                </div>
-            </div>
-
-            <div class="item"><!-- Third-Slide -->
-                <img src="images/3.jpg" alt="" class="img-responsive"/>
-                <div class="carousel-caption kb_caption kb_caption_center">
-                    <h3 data-animation="animated fadeInLeft">季末销售</h3>
-                    <h4 data-animation="animated flipInX">海哥电脑城 年中优惠</h4>
-                </div>
-            </div>
-
-        </div>
-        <!-- Left-Button -->
-        <a class="left carousel-control kb_control_left" href="#kb" role="button" data-slide="prev">
-            <span class="fa fa-angle-left kb_icons" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <!-- Right-Button -->
-        <a class="right carousel-control kb_control_right" href="#kb" role="button" data-slide="next">
-            <span class="fa fa-angle-right kb_icons" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <script src="js/custom.js"></script>
-</div>
-<!-- //banner -->
-<div class="tlinks">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
-<!-- welcome -->
-<div class="welcome">
-    <div class="container">
-        <div class="welcome-info">
-            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-                <ul id="myTab" class=" nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" >
-                        <i class="fa fa-laptop" aria-hidden="true"></i>
-                        <h5>笔记本</h5>
-                    </a></li>
-                    <li role="presentation"><a href="#carl" role="tab" id="carl-tab" data-toggle="tab">
-                        <i class="fa fa-female" aria-hidden="true"></i>
-                        <h5>台式机</h5>
-                    </a></li>
-                    <li role="presentation"><a href="#james" role="tab" id="james-tab" data-toggle="tab">
-                        <i class="fa fa-gift" aria-hidden="true"></i>
-                        <h5>显卡</h5>
-                    </a></li>
-                    <li role="presentation"><a href="#decor" role="tab" id="decor-tab" data-toggle="tab">
-                        <i class="fa fa-home" aria-hidden="true"></i>
-                        <h5>CPU</h5>
-                    </a></li>
-                    <li role="presentation"><a href="#sports" role="tab" id="sports-tab" data-toggle="tab">
-                        <i class="fa fa-motorcycle" aria-hidden="true"></i>
-                        <h5>SSD</h5>
-                    </a></li>
-                </ul>
-                <div class="clearfix"> </div>
-                <h3 class="w3ls-title">热销商品</h3>
-                <div id="myTabContent" class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-                        <div class="tabcontent-grids">
-                            <div id="owl-demo" class="owl-carousel">
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products.jsp"><img src="images/e1.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">联想拯救者Y700p</a></h4>
-                                            <p>2019英特尔酷睿i7 15.6英寸游戏笔记本电脑</p>
-                                            <h5>￥9299</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Audio speaker" />
-                                                <input type="hidden" name="amount" value="200.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>折扣</h6></div>
-                                        <a href="products.jsp"><img src="images/e2.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">神舟战神 Z7-CT7GK</a></h4>
-                                            <p>9代酷睿i7-9750H GTX1660Ti 15.6英寸轻薄游戏笔记本电脑</p>
-                                            <h5>￥7468</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Refrigerator" />
-                                                <input type="hidden" name="amount" value="700.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加购物车</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>新品</h6></div>
-                                        <a href="products.jsp"><img src="images/e3.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">戴尔DELL游匣G3</a></h4>
-                                            <p>15.6英寸轻薄游戏笔记本电脑</p>
-                                            <h5>￥6489</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Smart Phone" />
-                                                <input type="hidden" name="amount" value="300.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加购物车</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products.jsp"><img src="images/e4.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">惠普（HP）暗影精灵4代</a></h4>
-                                            <p>英特尔酷睿i7 15.6英寸游戏笔记本电脑</p>
-                                            <h5>￥6599</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Digital Camera"/>
-                                                <input type="hidden" name="amount" value="100.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加购物车</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products.jsp"><img src="images/e1.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">联想拯救者Y700p</a></h4>
-                                            <p>英特尔酷睿i7 15.6英寸游戏笔记本电脑</p>
-                                            <h5>￥9299</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Audio speaker" />
-                                                <input type="hidden" name="amount" value="200.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加购物车</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>折扣</h6></div>
-                                        <a href="products.jsp"><img src="images/e2.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">神舟战神 Z7-CT7GK</a></h4>
-                                            <p>9代酷睿i7 15.6英寸轻薄游戏笔记本电脑</p>
-                                            <h5>￥7468</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Refrigerator" />
-                                                <input type="hidden" name="amount" value="700.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加购物车</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>新品</h6></div>
-                                        <a href="products.jsp"><img src="images/e3.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">戴尔DELL游匣G3</a></h4>
-                                            <p>15.6英寸轻薄游戏笔记本电脑</p>
-                                            <h5>￥6489</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Smart Phone" />
-                                                <input type="hidden" name="amount" value="300.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加购物车</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products.jsp"><img src="images/e4.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">惠普（HP）暗影精灵4代</a></h4>
-                                            <p>英特尔酷睿i7 15.6英寸游戏笔记本电脑</p>
-                                            <h5>￥6599</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Digital Camera"/>
-                                                <input type="hidden" name="amount" value="100.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加购物车</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="carl" aria-labelledby="carl-tab">
-                        <div class="tabcontent-grids">
-                            <script>
-                                $(document).ready(function() {
-                                    $("#owl-demo1").owlCarousel({
-
-                                        autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-                                        items :4,
-                                        itemsDesktop : [640,5],
-                                        itemsDesktopSmall : [414,4],
-                                        navigation : true
-
-                                    });
-
-                                });
-                            </script>
-                            <div id="owl-demo1" class="owl-carousel">
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products1.jsp"><img src="images/f1.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products1.jsp">T Shirt</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$10</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="T Shirt" />
-                                                <input type="hidden" name="amount" value="10.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>20% <br> Off</h6></div>
-                                        <a href="products1.jsp"><img src="images/f2.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products1.jsp">Women Sandal</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$20</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Women Sandal" />
-                                                <input type="hidden" name="amount" value="20.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products1.jsp"><img src="images/f3.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products1.jsp">Jewellery</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$60</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Jewellery" />
-                                                <input type="hidden" name="amount" value="60.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>New</h6></div>
-                                        <a href="products1.jsp"><img src="images/f4.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products1.jsp">Party dress</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$15</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Party dress" />
-                                                <input type="hidden" name="amount" value="15.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products1.jsp"><img src="images/f1.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products1.jsp">T Shirt</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$10</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="T Shirt" />
-                                                <input type="hidden" name="amount" value="10.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>20% <br> Off</h6></div>
-                                        <a href="products1.jsp"><img src="images/f2.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products1.jsp">Women Sandal</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$20</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Women Sandal" />
-                                                <input type="hidden" name="amount" value="20.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products1.jsp"><img src="images/f3.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products1.jsp">Jewellery</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$60</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Jewellery" />
-                                                <input type="hidden" name="amount" value="60.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>New</h6></div>
-                                        <a href="products1.jsp"><img src="images/f4.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products1.jsp">Party dress</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$15</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Party dress" />
-                                                <input type="hidden" name="amount" value="15.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="james" aria-labelledby="james-tab">
-                        <div class="tabcontent-grids">
-                            <script>
-                                $(document).ready(function() {
-                                    $("#owl-demo2").owlCarousel({
-
-                                        autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-                                        items :4,
-                                        itemsDesktop : [640,5],
-                                        itemsDesktopSmall : [414,4],
-                                        navigation : true
-
-                                    });
-
-                                });
-                            </script>
-                            <div id="owl-demo2" class="owl-carousel">
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>New</h6></div>
-                                        <a href="products6.jsp"><img src="images/p1.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products6.jsp">Coffee Mug</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$14</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Coffee Mug" />
-                                                <input type="hidden" name="amount" value="14.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>20% <br> Off</h6></div>
-                                        <a href="products6.jsp"><img src="images/p2.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products6.jsp">Teddy bear</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$20</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Teddy bear" />
-                                                <input type="hidden" name="amount" value="20.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>Sale</h6></div>
-                                        <a href="products6.jsp"><img src="images/p3.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products6.jsp">Chocolates</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$60</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Chocolates" />
-                                                <input type="hidden" name="amount" value="60.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products6.jsp"><img src="images/p4.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products6.jsp">Gift Card</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$22</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Gift Card" />
-                                                <input type="hidden" name="amount" value="22.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>New</h6></div>
-                                        <a href="products6.jsp"><img src="images/p1.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products6.jsp">Coffee Mug</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$14</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Coffee Mug" />
-                                                <input type="hidden" name="amount" value="14.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>20% <br> Off</h6></div>
-                                        <a href="products6.jsp"><img src="images/p2.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products6.jsp">Teddy bear</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$20</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Teddy bear" />
-                                                <input type="hidden" name="amount" value="20.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>Sale</h6></div>
-                                        <a href="products6.jsp"><img src="images/p3.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products6.jsp">Chocolates</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$60</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Chocolates" />
-                                                <input type="hidden" name="amount" value="60.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products6.jsp"><img src="images/p4.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products6.jsp">Gift Card</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$22</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Gift Card" />
-                                                <input type="hidden" name="amount" value="22.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="decor" aria-labelledby="decor-tab">
-                        <div class="tabcontent-grids">
-                            <script>
-                                $(document).ready(function() {
-                                    $("#owl-demo3").owlCarousel({
-
-                                        autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-                                        items :4,
-                                        itemsDesktop : [640,5],
-                                        itemsDesktopSmall : [414,4],
-                                        navigation : true
-
-                                    });
-
-                                });
-                            </script>
-                            <div id="owl-demo3" class="owl-carousel">
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>Sale</h6></div>
-                                        <a href="products3.jsp"><img src="images/h1.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products3.jsp">Wall Clock</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$80</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Wall Clock" />
-                                                <input type="hidden" name="amount" value="80.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>10%<br>Off</h6></div>
-                                        <a href="products3.jsp"><img src="images/h2.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products3.jsp">Plants & Vases</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$40</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Plants & Vases" />
-                                                <input type="hidden" name="amount" value="40.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products3.jsp"><img src="images/h3.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products3.jsp">Queen Size Bed</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$250</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Queen Size Bed" />
-                                                <input type="hidden" name="amount" value="250.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products3.jsp"><img src="images/h4.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products3.jsp">flower pot</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$30</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="flower pot" />
-                                                <input type="hidden" name="amount" value="30.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>Sale</h6></div>
-                                        <a href="products3.jsp"><img src="images/h1.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products3.jsp">Wall Clock</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$80</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Wall Clock" />
-                                                <input type="hidden" name="amount" value="80.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>10%<br>Off</h6></div>
-                                        <a href="products3.jsp"><img src="images/h2.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products3.jsp">Plants & Vases</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$40</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Plants & Vases" />
-                                                <input type="hidden" name="amount" value="40.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products3.jsp"><img src="images/h3.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products3.jsp">Queen Size Bed</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$250</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Queen Size Bed" />
-                                                <input type="hidden" name="amount" value="250.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products3.jsp"><img src="images/h4.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products3.jsp">flower pot</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$30</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="flower pot" />
-                                                <input type="hidden" name="amount" value="30.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="sports" aria-labelledby="sports-tab">
-                        <div class="tabcontent-grids">
-                            <script>
-                                $(document).ready(function() {
-                                    $("#owl-demo4").owlCarousel({
-
-                                        autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-                                        items :4,
-                                        itemsDesktop : [640,5],
-                                        itemsDesktopSmall : [414,4],
-                                        navigation : true
-
-                                    });
-                                });
-                            </script>
-                            <div id="owl-demo4" class="owl-carousel">
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>New</h6></div>
-                                        <a href="products4.jsp"><img src="images/s1.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products4.jsp">Roller Skates</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$180</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Roller Skates"/>
-                                                <input type="hidden" name="amount" value="180.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products4.jsp"><img src="images/s2.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products4.jsp">Football</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$70</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Football"/>
-                                                <input type="hidden" name="amount" value="70.00"/>
-                                                <button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>20% <br>Off</h6></div>
-                                        <a href="products4.jsp"><img src="images/s3.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products4.jsp">Nylon Shuttle</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$56</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Nylon Shuttle" />
-                                                <input type="hidden" name="amount" value="56.00"/>
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products4.jsp"><img src="images/s4.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products4.jsp">Cricket Kit</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$80</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Cricket Kit" />
-                                                <input type="hidden" name="amount" value="80.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>New</h6></div>
-                                        <a href="products4.jsp"><img src="images/s1.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products4.jsp">Roller Skates</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$180</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Roller Skates"/>
-                                                <input type="hidden" name="amount" value="180.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products4.jsp"><img src="images/s2.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products4.jsp">Football</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$70</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Football"/>
-                                                <input type="hidden" name="amount" value="70.00"/>
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <div class="new-tag"><h6>20% <br>Off</h6></div>
-                                        <a href="products4.jsp"><img src="images/s3.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products4.jsp">Nylon Shuttle</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$56</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Nylon Shuttle" />
-                                                <input type="hidden" name="amount" value="56.00"/>
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits">
-                                        <a href="products4.jsp"><img src="images/s4.png" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products4.jsp">Cricket Kit</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5>$80</h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Cricket Kit" />
-                                                <input type="hidden" name="amount" value="80.00" />
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/sb-admin-charts.min.js"></script>
 </div>
-<!-- //welcome -->
-<!-- add-products -->
-<div class="add-products">
-    <div class="container">
-        <div class="add-products-row">
-            <div class="w3ls-add-grids">
-                <a href="products1.jsp">
-                    <!--					<h4>英特尔芯体验 <span>20%</span> 降价</h4>-->
-                    <h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                </a>
-            </div>
-            <div class="w3ls-add-grids w3ls-add-grids-mdl">
-                <a href="products1.jsp">
-                    <!--					<h4>SUNDAY SPECIAL DISCOUNT FLAT <span>40%</span> OFF</h4>-->
-                    <h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                </a>
-            </div>
-            <div class="w3ls-add-grids w3ls-add-grids-mdl1">
-                <a href="products.jsp">
-                    <!--					<h4>LATEST DESIGNS FOR YOU <span> Hurry !</span></h4>-->
-                    <h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                </a>
-            </div>
-            <div class="clerfix"> </div>
-        </div>
-    </div>
-</div>
-<!-- //add-products -->
-<!-- coming soon -->
-<div class="soon">
-    <div class="container">
-        <h3>周末特卖</h3>
-        <h4>走过路过 不要错过</h4>
-        <div id="countdown1" class="ClassyCountdownDemo"></div>
-    </div>
-</div>
-<!-- //coming soon -->
-<!-- deals -->
-<div class="deals">
-    <div class="container">
-        <h3 class="w3ls-title">今日热卖 </h3>
-        <div class="deals-row">
-            <div class="col-md-3 focus-grid">
-                <a href="products.jsp" class="wthree-btn">
-                    <div class="focus-image"><i class="fa fa-mobile"></i></div>
-                    <h4 class="clrchg">笔记本</h4>
-                </a>
-            </div>
-            <div class="col-md-3 focus-grid">
-                <a href="products.jsp" class="wthree-btn wthree1">
-                    <div class="focus-image"><i class="fa fa-laptop"></i></div>
-                    <h4 class="clrchg"> 台式机</h4>
-                </a>
-            </div>
-            <div class="col-md-3 focus-grid">
-                <a href="products4.jsp" class="wthree-btn wthree2">
-                    <div class="focus-image"><i class="fa fa-wheelchair"></i></div>
-                    <h4 class="clrchg">显卡</h4>
-                </a>
-            </div>
-            <div class="col-md-3 focus-grid">
-                <a href="products3.jsp" class="wthree-btn wthree3">
-                    <div class="focus-image"><i class="fa fa-home"></i></div>
-                    <h4 class="clrchg">CPU</h4>
-                </a>
-            </div>
-            <div class="col-md-2 focus-grid w3focus-grid-mdl">
-                <a href="products9.jsp" class="wthree-btn wthree3">
-                    <div class="focus-image"><i class="fa fa-book"></i></div>
-                    <h4 class="clrchg">显示器</h4>
-                </a>
-            </div>
-            <div class="col-md-2 focus-grid w3focus-grid-mdl">
-                <a href="products1.jsp" class="wthree-btn wthree4">
-                    <div class="focus-image"><i class="fa fa-asterisk"></i></div>
-                    <h4 class="clrchg">SSD</h4>
-                </a>
-            </div>
-            <div class="col-md-2 focus-grid w3focus-grid-mdl">
-                <a href="products2.jsp" class="wthree-btn wthree2">
-                    <div class="focus-image"><i class="fa fa-gamepad"></i></div>
-                    <h4 class="clrchg">键盘</h4>
-                </a>
-            </div>
-            <div class="col-md-2 focus-grid w3focus-grid-mdl">
-                <a href="products5.jsp" class="wthree-btn wthree">
-                    <div class="focus-image"><i class="fa fa-shopping-basket"></i></div>
-                    <h4 class="clrchg">鼠标</h4>
-                </a>
-            </div>
-            <div class="col-md-2 focus-grid w3focus-grid-mdl">
-                <a href="products7.jsp" class="wthree-btn wthree5">
-                    <div class="focus-image"><i class="fa fa-medkit"></i></div>
-                    <h4 class="clrchg">耳机</h4>
-                </a>
-            </div>
-            <div class="col-md-2 focus-grid w3focus-grid-mdl">
-                <a href="products8.jsp" class="wthree-btn wthree1">
-                    <div class="focus-image"><i class="fa fa-car"></i></div>
-                    <h4 class="clrchg">路由器</h4>
-                </a>
-            </div>
-            <div class="col-md-3 focus-grid">
-                <a href="products5.jsp" class="wthree-btn wthree2">
-                    <div class="focus-image"><i class="fa fa-cutlery"></i></div>
-                    <h4 class="clrchg">Food</h4>
-                </a>
-            </div>
-            <div class="col-md-3 focus-grid">
-                <a href="products4.jsp" class="wthree-btn wthree5">
-                    <div class="focus-image"><i class="fa fa-futbol-o"></i></div>
-                    <h4 class="clrchg">机箱</h4>
-                </a>
-            </div>
-            <div class="col-md-3 focus-grid">
-                <a href="products2.jsp" class="wthree-btn wthree3">
-                    <div class="focus-image"><i class="fa fa-gamepad"></i></div>
-                    <h4 class="clrchg">摄像头</h4>
-                </a>
-            </div>
-            <div class="col-md-3 focus-grid">
-                <a href="products6.jsp" class="wthree-btn ">
-                    <div class="focus-image"><i class="fa fa-gift"></i></div>
-                    <h4 class="clrchg">音响</h4>
-                </a>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-</div>
-<!-- //deals -->
-<!-- footer-top -->
-<div class="w3agile-ftr-top">
-    <div class="container">
-        <div class="ftr-toprow">
-            <div class="col-md-4 ftr-top-grids">
-                <div class="ftr-top-left">
-                    <i class="fa fa-truck" aria-hidden="true"></i>
-                </div>
-                <div class="ftr-top-right">
-                    <h4>邮费送你</h4>
-                    <p>太远的地不送 </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="col-md-4 ftr-top-grids">
-                <div class="ftr-top-left">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                </div>
-                <div class="ftr-top-right">
-                    <h4>客户权益</h4>
-                    <p>只要你加我微信，你就能投诉 </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="col-md-4 ftr-top-grids">
-                <div class="ftr-top-left">
-                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                </div>
-                <div class="ftr-top-right">
-                    <h4>终极品质</h4>
-                    <p>担心你买不起 </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-</div>
-<!-- //footer-top -->
-<!-- subscribe -->
-<div class="subscribe">
-    <div class="container">
-        <div class="col-md-6 social-icons w3-agile-icons">
-            <h4>保持联系哦</h4>
-            <ul>
-                <li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
-                <li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
-                <li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
-                <li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
-                <li><a href="#" class="fa fa-rss icon rss"> </a></li>
-            </ul>
-            <ul class="apps">
-                <li><h4>下载我们的APP: </h4> </li>
-                <li><a href="#" class="fa fa-apple"></a></li>
-                <li><a href="#" class="fa fa-windows"></a></li>
-                <li><a href="#" class="fa fa-android"></a></li>
-            </ul>
-        </div>
-        <div class="col-md-6 subscribe-right">
-            <h4>告诉我电话号码送钱</h4>
-            <form action="#" method="post">
-                <input type="text" name="email" placeholder="你的电话号码...." required="">
-                <input type="submit" value="提交">
-            </form>
-            <div class="clearfix"> </div>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-</div>
-<!-- //subscribe -->
-<!-- footer -->
-<div class="footer">
-    <div class="container">
-        <div class="footer-info w3-agileits-info">
-            <div class="col-md-4 address-left agileinfo">
-                <div class="footer-logo header-logo">
-                    <h2><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h2>
-                    <h6>你的商店，你做主</h6>
-                </div>
-                <ul>
-                    <li><i class="fa fa-map-marker"></i> 尖草坪, 太原 山西 ,中国.</li>
-                    <li><i class="fa fa-mobile"></i> 182 3410 9542 </li>
-                    <li><i class="fa fa-phone"></i> +10086 </li>
-                    <li><i class="fa fa-envelope-o"></i> <a href="mailto:example@mail.com"> mail@example.com</a></li>
-                </ul>
-            </div>
-            <div class="col-md-8 address-right">
-                <div class="col-md-4 footer-grids">
-                    <h3>公司</h3>
-                    <ul>
-                        <li><a href="about.jsp">我们</a></li>
-                        <li><a href="marketplace.jsp">市值</a></li>
-                        <li><a href="values.jsp">核心观念</a></li>
-                        <li><a href="privacy.jsp">隐私政策</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 footer-grids">
-                    <h3>为您服务</h3>
-                    <ul>
-                        <li><a href="contact.jsp">联系我们</a></li>
-                        <li><a href="login.jsp">回到首页</a></li>
-                        <li><a href="faq.jsp">常见问题</a></li>
-                        <li><a href="sitemap.jsp">详细地址</a></li>
-                        <li><a href="login.jsp">订单状态</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 footer-grids">
-                    <h3>支付方式</h3>
-                    <ul>
-                        <li><i class="fa fa-laptop" aria-hidden="true"></i> 网上银行</li>
-                        <li><i class="fa fa-money" aria-hidden="true"></i> 货到付款</li>
-                        <li><i class="fa fa-pie-chart" aria-hidden="true"></i> 支付宝</li>
-                        <li><i class="fa fa-gift" aria-hidden="true"></i> 礼品券抵扣</li>
-                        <li><i class="fa fa-credit-card" aria-hidden="true"></i> 信用卡/贷款</li>
-                    </ul>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<!-- //footer -->
-<div class="copy-right">
-    <div class="container">
-        <p>Copyright &copy; 2019.Company name All rights reserved. <a href="http://www.baidu.com/" target="_blank" title="baidu">海哥全知道</a> </p>
-    </div>
-</div>
-<!-- cart-js -->
-<script src="js/minicart.js"></script>
-<script>
-    w3ls.render();
-
-    w3ls.cart.on('w3sb_checkout', function (evt) {
-        var items, len, i;
-
-        if (this.subtotal() > 0) {
-            items = this.items();
-
-            for (i = 0, len = items.length; i < len; i++) {
-                items[i].set('shipping', 0);
-                items[i].set('shipping2', 0);
-            }
-        }
-    });
-</script>
-<!-- //cart-js -->
-<!-- countdown.js -->
-<script src="js/jquery.knob.js"></script>
-<script src="js/jquery.throttle.js"></script>
-<script src="js/jquery.classycountdown.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#countdown1').ClassyCountdown({
-            end: '1388268325',
-            now: '1387999995',
-            labels: true,
-            style: {
-                element: "",
-                textResponsive: .5,
-                days: {
-                    gauge: {
-                        thickness: .10,
-                        bgColor: "rgba(0,0,0,0)",
-                        fgColor: "#1abc9c",
-                        lineCap: 'round'
-                    },
-                    textCSS: 'font-weight:300; color:#fff;'
-                },
-                hours: {
-                    gauge: {
-                        thickness: .10,
-                        bgColor: "rgba(0,0,0,0)",
-                        fgColor: "#05BEF6",
-                        lineCap: 'round'
-                    },
-                    textCSS: ' font-weight:300; color:#fff;'
-                },
-                minutes: {
-                    gauge: {
-                        thickness: .10,
-                        bgColor: "rgba(0,0,0,0)",
-                        fgColor: "#8e44ad",
-                        lineCap: 'round'
-                    },
-                    textCSS: ' font-weight:300; color:#fff;'
-                },
-                seconds: {
-                    gauge: {
-                        thickness: .10,
-                        bgColor: "rgba(0,0,0,0)",
-                        fgColor: "#f39c12",
-                        lineCap: 'round'
-                    },
-                    textCSS: ' font-weight:300; color:#fff;'
-                }
-
-            },
-            onEndCallback: function() {
-                console.log("Time out!");
-            }
-        });
-    });
-</script>
-<!-- //countdown.js -->
-<!-- menu js aim -->
-<script src="js/jquery.menu-aim.js"> </script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
-<!-- //menu js aim -->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 </body>
+
+</html>
 

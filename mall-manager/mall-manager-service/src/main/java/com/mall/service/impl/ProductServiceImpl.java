@@ -4,6 +4,7 @@ import com.mall.service.ProductService;
 import com.mall.service.impl.product.ProductDaoImpl;
 import com.mall.service.product.Product;
 import com.mall.service.product.ProductDao;
+import com.mall.service.product.ProductImages;
 
 import java.util.List;
 
@@ -60,5 +61,12 @@ public class ProductServiceImpl implements ProductService {
     public void updateProduct(Product product, String id) {
         ProductDao dao = new ProductDaoImpl();
         dao.updateProduct(product,id);
+    }
+
+    @Override
+    public Integer addProductImageService(ProductImages productImages, String shp_id) {
+        ProductDao dao = new ProductDaoImpl();
+        dao.addProductImage(productImages,shp_id);
+        return 1;
     }
 }

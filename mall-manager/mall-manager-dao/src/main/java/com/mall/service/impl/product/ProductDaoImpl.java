@@ -2,6 +2,7 @@ package com.mall.service.impl.product;
 
 import com.mall.service.product.Product;
 import com.mall.service.product.ProductDao;
+import com.mall.service.product.ProductImages;
 import com.mall.service.utils.JdbcUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -103,5 +104,18 @@ public class ProductDaoImpl implements ProductDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Integer addProductImage(ProductImages productImages,String shp_id) {
+        QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
+        String sql="insert into secondprogram1.product_image(tu_id,tu_mch,zy,shp_id,url)" +
+        "value(?,?,?,?,?);";
+        try {
+            qr.update(sql,productImages.getTu_Id(),productImages.getTu_mch(),productImages.getZy(),shp_id,productImages.getUrl());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 1;
     }
 }

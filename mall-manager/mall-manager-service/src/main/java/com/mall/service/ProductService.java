@@ -1,6 +1,7 @@
 package com.mall.service;
 
 import com.mall.service.product.Product;
+import com.mall.service.product.ProductImages;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface ProductService {
     public void deleteProductService(String shp_id);
     //修改商品 按id
     public void updateProduct(Product product,String id);
+    //为商品增加图片 按shp_id
+    public Integer addProductImageService(ProductImages productImages, String shp_id);
 }

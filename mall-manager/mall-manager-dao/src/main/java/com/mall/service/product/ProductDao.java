@@ -20,4 +20,7 @@ public interface ProductDao {
 
     //修改商品 按id
     public void updateProduct(Product product,String id);
+
+    //为商品增加图片 按shp_id
+    public Integer addProductImage(ProductImages productImages, String shp_id);
 }
