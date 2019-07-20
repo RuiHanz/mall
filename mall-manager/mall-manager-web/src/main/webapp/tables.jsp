@@ -80,6 +80,18 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                <a class="nav-link" href="ordertables.jsp">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">订单管理</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+                <a class="nav-link" href="评论管理.jsp">
+                    <i class="fa fa-fw fa-area-chart"></i>
+                    <span class="nav-link-text">评论管理</span>
+                </a>
+            </li>
 <%--                    <li>--%>
 <%--                        <a href="#">Second Level Item</a>--%>
 <%--                    </li>--%>
@@ -272,7 +284,7 @@
                             <td>${product.pp_id}</td>
                             <td>${product.shp_ys}</td>
                             <td>${product.shp_jg}</td>
-                            <td>${product.shp_kc}</td>
+                            <td>${product.shp_kc}</td>y
                             <td>${product.chjshj}</td>
                             <td><a href="/update.do?shp_id=${product.shp_id}&handle=update">修改</a></td>
                             <td><a href="/update.do?shp_id=${product.shp_id}&handle=delete">删除</a></td>

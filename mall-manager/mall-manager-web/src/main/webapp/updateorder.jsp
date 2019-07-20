@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2019-7-18
-  Time: 8:57
+  Date: 2019-7-19
+  Time: 22:52
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
@@ -39,25 +39,25 @@
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                <i class="fa fa-fw fa-wrench"></i>
-                <span class="nav-link-text">商品管理</span>
-            </a>
-            <ul class="sidenav-second-level collapse" id="collapseComponents">
-                <li>
-                    <a href="商品发布.jsp">商品上架</a>
-                </li>
-                <li>
-                    <a href="tables.jsp">商品查询、下架及修改</a>
-                </li>
-                <li>
-                    <a href="添加品牌.jsp">添加品牌</a>
-                </li>
-                <li>
-                    <a href="品牌查删改.jsp">品牌查询、下架及修改</a>
-                </li>
-            </ul>
-        </li>
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-wrench"></i>
+                    <span class="nav-link-text">商品管理</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                    <li>
+                        <a href="商品发布.jsp">商品上架</a>
+                    </li>
+                    <li>
+                        <a href="tables.jsp">商品查询、下架及修改</a>
+                    </li>
+                    <li>
+                        <a href="添加品牌.jsp">添加品牌</a>
+                    </li>
+                    <li>
+                        <a href="品牌查删改.jsp">品牌查询、下架及修改</a>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-sitemap"></i>
@@ -81,43 +81,43 @@
                     <span class="nav-link-text">评论管理</span>
                 </a>
             </li>
-<%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">--%>
-<%--                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">--%>
-<%--                    <i class="fa fa-fw fa-sitemap"></i>--%>
-<%--                    <span class="nav-link-text">Menu Levels</span>--%>
-<%--                </a>--%>
-<%--                <ul class="sidenav-second-level collapse" id="collapseMulti">--%>
-<%--                    <li>--%>
-<%--                        <a href="#">Second Level Item</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a href="#">Second Level Item</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a href="#">Second Level Item</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>--%>
-<%--                        <ul class="sidenav-third-level collapse" id="collapseMulti2">--%>
-<%--                            <li>--%>
-<%--                                <a href="#">Third Level Item</a>--%>
-<%--                            </li>--%>
-<%--                            <li>--%>
-<%--                                <a href="#">Third Level Item</a>--%>
-<%--                            </li>--%>
-<%--                            <li>--%>
-<%--                                <a href="#">Third Level Item</a>--%>
-<%--                            </li>--%>
-<%--                        </ul>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-<%--            </li>--%>
-<%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">--%>
-<%--                <a class="nav-link" href="#">--%>
-<%--                    <i class="fa fa-fw fa-link"></i>--%>
-<%--                    <span class="nav-link-text">Link</span>--%>
-<%--                </a>--%>
-<%--            </li>--%>
+            <%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">--%>
+            <%--                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">--%>
+            <%--                    <i class="fa fa-fw fa-sitemap"></i>--%>
+            <%--                    <span class="nav-link-text">Menu Levels</span>--%>
+            <%--                </a>--%>
+            <%--                <ul class="sidenav-second-level collapse" id="collapseMulti">--%>
+            <%--                    <li>--%>
+            <%--                        <a href="#">Second Level Item</a>--%>
+            <%--                    </li>--%>
+            <%--                    <li>--%>
+            <%--                        <a href="#">Second Level Item</a>--%>
+            <%--                    </li>--%>
+            <%--                    <li>--%>
+            <%--                        <a href="#">Second Level Item</a>--%>
+            <%--                    </li>--%>
+            <%--                    <li>--%>
+            <%--                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>--%>
+            <%--                        <ul class="sidenav-third-level collapse" id="collapseMulti2">--%>
+            <%--                            <li>--%>
+            <%--                                <a href="#">Third Level Item</a>--%>
+            <%--                            </li>--%>
+            <%--                            <li>--%>
+            <%--                                <a href="#">Third Level Item</a>--%>
+            <%--                            </li>--%>
+            <%--                            <li>--%>
+            <%--                                <a href="#">Third Level Item</a>--%>
+            <%--                            </li>--%>
+            <%--                        </ul>--%>
+            <%--                    </li>--%>
+            <%--                </ul>--%>
+            <%--            </li>--%>
+            <%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">--%>
+            <%--                <a class="nav-link" href="#">--%>
+            <%--                    <i class="fa fa-fw fa-link"></i>--%>
+            <%--                    <span class="nav-link-text">Link</span>--%>
+            <%--                </a>--%>
+            <%--            </li>--%>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
@@ -207,7 +207,7 @@
 
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-fw fa-sign-out"></i>退出</a>
+                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
             </li>
         </ul>
     </div>
@@ -218,82 +218,38 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
+                <a href="#">订单管理</a>
             </li>
-            <li class="breadcrumb-item active">用户管理</li>
+            <li class="breadcrumb-item active">订单表</li>
         </ol>
 
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> 用户管理 </div>
-            <form action="/selectUser.do" method="post">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div id="dataTable_filter" class="dataTables_filter">
+                <i class="fa fa-table"></i>修改订单</div>
+            <div class="card mb-3">
+                <c:forEach items="${order}" var="order">
 
-                            <label>
-                                <input name="select" type="submit" value="搜 索"  class="Search_btn"/>
-                                <select name="selectType" size="1">
-                                    <option value="0" selected>全部</option>
-                                    <option value="1" >用户名称</option>
-                                    <option value="2" >用户手机号</option>
-                                </select>
-                                <input type="search" name="searchName" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
-                            </label>
-                        </div>
-                    </div>
-                </div>
+                <form action="/order.do?_method=modifySave" method="post">
+                    <tr><td class="label" >订单编号:</td><td><input name="dd_id" type="text" size="1px" value=${order.dd_id} ></td>></tr>>
+                    <tr style="display: none"><td class="label">用户id:</td><td><input name="yh_id" type="text"  class="form-control"  value=${order.yh_id}></td></tr>
+                    <tr style="display: none"><td class="label">卖家id:</td><td><input name="mai_id" type="text"  class="form-control"  value=${order.mai_id}></td></tr>
+                    <tr><td class="label">商品名称:</td><td><input name="shp_mch" type="text"  class="form-control"  value=${order.shp_mch}></td></tr>
+                    <tr><td class="label">总价:</td><td><input name="zje" type="text"  class="form-control"  value=${order.zje}></td></tr>
+                    <tr><td class="label">收货人:</td><td><input name="shhr" type="text"  class="form-control" value=${order.shhr}></td></tr>
+                    <tr><td class="label">收获地址:</td><td><input name="dzh_mch" type="text"  class="form-control"  value=${order.dzh_mch}></td></tr>
+                    <tr><td class="label">订单进度:</td><td><input name="jdh" type="text"  class="form-control"  value=${order.jdh}></td></tr>
+                    <tr><td class="label">创建时间:</td><td><input name="chjshj" type="text"  class="form-control"  value=${order.chjshj}></td></tr>
+                    <tr style="display: none"><td class="label">预计送达时间:</td><td><input name="yjsdshj" type="text"  class="form-control" value=${order.yjsdshj}></td></tr>
+                    </c:forEach>
 
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                        <tr>
-                            <th>用户名称</th>
-                            <th>用户姓名</th>
-                            <th>用户性别</th>
-                            <th>用户手机号</th>
-                            <th>用户邮箱</th>
-                            <th>用户住址</th>
-                            <th>用户状态</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                            <th>用户名称</th>
-                            <th>用户姓名</th>
-                            <th>用户性别</th>
-                            <th>用户手机号</th>
-                            <th>用户邮箱</th>
-                            <th>用户住址</th>
-                            <th>用户状态</th>
-                            <th>操作</th>
-                        </tr>
-                        </tfoot>
-                        <tbody>
-                        <c:forEach items="${userList}" var="user">
-                        <tr>
-                            <td>${user.yh_mch}</td>
-                            <td>${user.yh_xm}</td>
-                            <td>${user.yh_xb}</td>
-                            <td>${user.yh_shjh}</td>
-                            <td>${user.yh_yx}</td>
-                            <td>${user.yh_jg}</td>
-                            <td>${user.yh_zht}</td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=delete">删除</a></td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=close">封禁</a></td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=open">解封</a></td>
 
-                        </tr>
-                        </c:forEach>
-
-                        </tbody>
-                    </table>
-                </div>
+                    </td>
+                    </tr>
+                    <input type="submit" value="保存 " >
+                </form>
             </div>
-            </form>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+
         </div>
     </div>
     <!-- /.container-fluid-->

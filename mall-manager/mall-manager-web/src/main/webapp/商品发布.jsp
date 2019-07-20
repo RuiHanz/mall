@@ -69,6 +69,18 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                <a class="nav-link" href="ordertables.jsp">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">订单管理</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+                <a class="nav-link" href="评论管理.jsp">
+                    <i class="fa fa-fw fa-area-chart"></i>
+                    <span class="nav-link-text">评论管理</span>
+                </a>
+            </li>
 <%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">--%>
 <%--                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">--%>
 <%--                    <i class="fa fa-fw fa-sitemap"></i>--%>

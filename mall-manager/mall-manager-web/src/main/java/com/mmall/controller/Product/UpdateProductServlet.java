@@ -50,8 +50,7 @@ public class UpdateProductServlet extends HttpServlet {
         String shp_id = req.getParameter("shp_id");
         ProductService productService=new ProductServiceImpl();
         productService.deleteProductService(shp_id);
-        PrintWriter out = resp.getWriter();
-        out.print("<script>alert('删除成功!');window.location.href='tables.jsp';</script>");
+
         List<Product> productList=null;
         productList=productService.selectAllService();
         req.setAttribute("productList",productList);

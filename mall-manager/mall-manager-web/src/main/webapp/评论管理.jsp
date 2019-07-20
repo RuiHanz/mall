@@ -65,7 +65,7 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseMulti">
                     <li>
-                        <a href="用户搜删改.jsp">用户查询、删除、封禁与解封</a>
+                        <a href="评论管理.jsp">用户查询、删除、封禁与解封</a>
                     </li>
                 </ul>
             </li>
@@ -219,14 +219,14 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
             </li>
-            <li class="breadcrumb-item active">用户管理</li>
+            <li class="breadcrumb-item active">评论管理</li>
         </ol>
 
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> 用户管理 </div>
-            <form action="/selectUser.do" method="post">
+                <i class="fa fa-table"></i> 评论管理 </div>
+            <form action="/selectComment.do" method="post">
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <div id="dataTable_filter" class="dataTables_filter">
@@ -235,8 +235,8 @@
                                 <input name="select" type="submit" value="搜 索"  class="Search_btn"/>
                                 <select name="selectType" size="1">
                                     <option value="0" selected>全部</option>
-                                    <option value="1" >用户名称</option>
-                                    <option value="2" >用户手机号</option>
+                                    <option value="1" >商品id</option>
+                                    <option value="2" >商品名称</option>
                                 </select>
                                 <input type="search" name="searchName" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
                             </label>
@@ -249,42 +249,30 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>用户名称</th>
-                            <th>用户姓名</th>
-                            <th>用户性别</th>
-                            <th>用户手机号</th>
-                            <th>用户邮箱</th>
-                            <th>用户住址</th>
-                            <th>用户状态</th>
+                            <th>商品名称</th>
+                            <th>好评级别</th>
+                            <th>评论内容</th>
+                            <th>评论时间</th>>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>用户名称</th>
-                            <th>用户姓名</th>
-                            <th>用户性别</th>
-                            <th>用户手机号</th>
-                            <th>用户邮箱</th>
-                            <th>用户住址</th>
-                            <th>用户状态</th>
+                            <th>商品名称</th>
+                            <th>好评级别</th>
+                            <th>评论内容</th>
+                            <th>评论时间</th>>
                             <th>操作</th>
                         </tr>
                         </tfoot>
                         <tbody>
-                        <c:forEach items="${userList}" var="user">
+                        <c:forEach items="${commentsList}" var="comment">
                         <tr>
-                            <td>${user.yh_mch}</td>
-                            <td>${user.yh_xm}</td>
-                            <td>${user.yh_xb}</td>
-                            <td>${user.yh_shjh}</td>
-                            <td>${user.yh_yx}</td>
-                            <td>${user.yh_jg}</td>
-                            <td>${user.yh_zht}</td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=delete">删除</a></td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=close">封禁</a></td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=open">解封</a></td>
-
+                            <td>${comment.shp_mch}</td>
+                            <td>${comment.hpjb}</td>
+                            <td>${comment.plnr}</td>
+                            <td>${comment.plshj}</td>
+                            <td><a href="/updateComment.do?pl_id=${comment.dd_id}&handle=delete">删除</a></td>
                         </tr>
                         </c:forEach>
 

@@ -16,7 +16,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public void addProduct(String shp_id, String shp_mch, Integer flmch1_id, Integer flmch2_id, String pp_id, String chjshj, String shp_msh, float shp_jg, String shp_ys, Integer shp_kc) {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql = "insert into secondprogram1.product(shp_id,shp_mch,flmch1_id,flmch2_id,pp_id,chjshj,shp_msh,shp_jg,shp_ys,shp_kc)" +
+        String sql = "insert into product(shp_id,shp_mch,flmch1_id,flmch2_id,pp_id,chjshj,shp_msh,shp_jg,shp_ys,shp_kc)" +
                 "                value(?,?,?,?,?,date_format(CURRENT_TIMESTAMP,'%Y-%c-%d'),?,?,?,?);";
         try {
 
@@ -29,7 +29,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public List<Product> selectAll() {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql = "select * from secondprogram1.product";
+        String sql = "select * from product";
         List<Product> productList=null;
         try {
             productList = qr.query(sql.toString(), new BeanListHandler<Product>(Product.class));
@@ -43,7 +43,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public List<Product> selectByName(String shp_mch) {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql = "select * from secondprogram1.product where shp_mch=?";
+        String sql = "select * from product where shp_mch=?";
         List<Product> productList=null;
         try {
             productList = qr.query(sql.toString(), new BeanListHandler<Product>(Product.class),shp_mch);
@@ -56,7 +56,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public List<Product> selectByShp_msh(String shp_msh) {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql = "select * from secondprogram1.product where shp_msh like '%' ? '%'";
+        String sql = "select * from product where shp_msh like '%' ? '%'";
         List<Product> productList=null;
 
         try {
@@ -71,7 +71,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public List<Product> selectByShp_id(String shp_id) {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql = "select * from secondprogram1.product where shp_id=?";
+        String sql = "select * from product where shp_id=?";
         List<Product> productList=null;
         try {
             productList = qr.query(sql.toString(), new BeanListHandler<Product>(Product.class),shp_id);
@@ -84,7 +84,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public void deleteProduct(String shp_id) {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql = "delete from secondprogram1.product where shp_id=?";
+        String sql = "delete from product where shp_id=?";
         try {
             qr.update(sql, shp_id);
         } catch (SQLException e) {
@@ -97,7 +97,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public void updateProduct(Product product,String id) {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql="UPDATE secondprogram1.product SET shp_id=?,shp_mch=?,flmch1_id=?,flmch2_id=?,pp_id=?,chjshj=date_format(CURRENT_TIMESTAMP,'%Y-%c-%d'),shp_msh=?,shp_jg=?,shp_ys=?,shp_kc=?" +
+        String sql="UPDATE product SET shp_id=?,shp_mch=?,flmch1_id=?,flmch2_id=?,pp_id=?,chjshj=date_format(CURRENT_TIMESTAMP,'%Y-%c-%d'),shp_msh=?,shp_jg=?,shp_ys=?,shp_kc=?" +
                 " WHERE shp_id=?;";
         try {
             qr.update(sql,product.getShp_id(),product.getShp_mch(),product.getFlmch1_id(),product.getFlmch2_id(),product.getPp_id(),product.getShp_msh(),product.getShp_jg(),product.getShp_ys(),product.getShp_kc(),id);
@@ -109,7 +109,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public Integer addProductImage(ProductImages productImages,String shp_id) {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql="insert into secondprogram1.product_image(tu_id,tu_mch,zy,shp_id,url)" +
+        String sql="insert into product_image(tu_id,tu_mch,zy,shp_id,url)" +
         "value(?,?,?,?,?);";
         try {
             qr.update(sql,productImages.getTu_Id(),productImages.getTu_mch(),productImages.getZy(),shp_id,productImages.getUrl());

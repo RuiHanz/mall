@@ -1,3 +1,6 @@
+import com.mall.service.Order;
+import com.mall.service.OrderDao;
+import com.mall.service.impl.OrderDaoImpl;
 import com.mall.service.impl.markAndclass.dao.impl.MarkDaoImpl;
 import com.mall.service.impl.product.ProductDaoImpl;
 import com.mall.service.impl.user.UserDaoImpl;
@@ -121,6 +124,13 @@ public class test1 {
     public void testDemo12(){
         IUserDao dao= new UserDaoImpl();
         dao.deleteUser("1");
+    }
+    @Test
+    public void testDemo13() throws SQLException {
+        OrderDao dao=new OrderDaoImpl();
+        dao.addOrder("1","2019-7-19",1);
+
+
     }
 
 }

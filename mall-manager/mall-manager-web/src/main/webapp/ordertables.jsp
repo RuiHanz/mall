@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<%@ page import="com.mall.service.order.Order" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page isErrorPage="false" %>
 <html>
@@ -37,27 +38,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                <i class="fa fa-fw fa-wrench"></i>
-                <span class="nav-link-text">商品管理</span>
-            </a>
-            <ul class="sidenav-second-level collapse" id="collapseComponents">
-                <li>
-                    <a href="商品发布.jsp">商品上架</a>
-                </li>
-                <li>
-                    <a href="tables.jsp">商品查询、下架及修改</a>
-                </li>
-                <li>
-                    <a href="添加品牌.jsp">添加品牌</a>
-                </li>
-                <li>
-                    <a href="品牌查删改.jsp">品牌查询、下架及修改</a>
-                </li>
-            </ul>
-        </li>
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-wrench"></i>
+                    <span class="nav-link-text">商品管理</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                    <li>
+                        <a href="商品发布.jsp">商品上架</a>
+                    </li>
+                    <li>
+                        <a href="tables.jsp">商品查询、下架及修改</a>
+                    </li>
+                    <li>
+                        <a href="添加品牌.jsp">添加品牌</a>
+                    </li>
+                    <li>
+                        <a href="品牌查删改.jsp">品牌查询、下架及修改</a>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-sitemap"></i>
@@ -81,43 +81,7 @@
                     <span class="nav-link-text">评论管理</span>
                 </a>
             </li>
-<%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">--%>
-<%--                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">--%>
-<%--                    <i class="fa fa-fw fa-sitemap"></i>--%>
-<%--                    <span class="nav-link-text">Menu Levels</span>--%>
-<%--                </a>--%>
-<%--                <ul class="sidenav-second-level collapse" id="collapseMulti">--%>
-<%--                    <li>--%>
-<%--                        <a href="#">Second Level Item</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a href="#">Second Level Item</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a href="#">Second Level Item</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>--%>
-<%--                        <ul class="sidenav-third-level collapse" id="collapseMulti2">--%>
-<%--                            <li>--%>
-<%--                                <a href="#">Third Level Item</a>--%>
-<%--                            </li>--%>
-<%--                            <li>--%>
-<%--                                <a href="#">Third Level Item</a>--%>
-<%--                            </li>--%>
-<%--                            <li>--%>
-<%--                                <a href="#">Third Level Item</a>--%>
-<%--                            </li>--%>
-<%--                        </ul>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-<%--            </li>--%>
-<%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">--%>
-<%--                <a class="nav-link" href="#">--%>
-<%--                    <i class="fa fa-fw fa-link"></i>--%>
-<%--                    <span class="nav-link-text">Link</span>--%>
-<%--                </a>--%>
-<%--            </li>--%>
+
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
@@ -130,7 +94,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-envelope"></i>
-                    <span class="d-lg-none">信息
+                    <span class="d-lg-none">Messages
               <span class="badge badge-pill badge-primary">12 New</span>
             </span>
                     <span class="indicator text-primary d-none d-lg-block">
@@ -138,7 +102,7 @@
             </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-                    <h6 class="dropdown-header">信息:</h6>
+                    <h6 class="dropdown-header">New Messages:</h6>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">
                         <strong>David Miller</strong>
@@ -207,95 +171,86 @@
 
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-fw fa-sign-out"></i>退出</a>
+                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
             </li>
         </ul>
     </div>
 </nav>
-
 <div class="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
+                <a href="#">订单管理</a>
             </li>
-            <li class="breadcrumb-item active">用户管理</li>
         </ol>
-
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> 用户管理 </div>
-            <form action="/selectUser.do" method="post">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div id="dataTable_filter" class="dataTables_filter">
+                <i class="fa fa-table"></i> 订单表</div>
 
-                            <label>
-                                <input name="select" type="submit" value="搜 索"  class="Search_btn"/>
-                                <select name="selectType" size="1">
-                                    <option value="0" selected>全部</option>
-                                    <option value="1" >用户名称</option>
-                                    <option value="2" >用户手机号</option>
-                                </select>
-                                <input type="search" name="searchName" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
-                            </label>
+                    <form action="/order.do" method="post">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div id="dataTable_filter" class="dataTables_filter">
+
+                                    <label>
+                                        <a href="/order.do?_method=insert" class="Search_btn">显示订单</a>
+                                    </label>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-            <div class="card-body">
-                <div class="table-responsive">
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>用户名称</th>
-                            <th>用户姓名</th>
-                            <th>用户性别</th>
-                            <th>用户手机号</th>
-                            <th>用户邮箱</th>
-                            <th>用户住址</th>
-                            <th>用户状态</th>
-                            <th>操作</th>
+                            <th>订单编号</th>
+                            <th>商品名称</th>
+                            <th>总价</th>
+                            <th>收货人</th>
+                            <th>收货地址</th>
+                            <th>创建时间</th>
+                            <th>订单进度号</th>
+                            <th colspan="2" >操作</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>用户名称</th>
-                            <th>用户姓名</th>
-                            <th>用户性别</th>
-                            <th>用户手机号</th>
-                            <th>用户邮箱</th>
-                            <th>用户住址</th>
-                            <th>用户状态</th>
-                            <th>操作</th>
+                            <th>订单编号</th>
+                            <th>商品名称</th>
+                            <th>总价</th>
+                            <th>收货人</th>
+                            <th>收货地址</th>
+                            <th>创建时间</th>
+                            <th>订单进度号</th>
+                            <th colspan="2">操作</th>
                         </tr>
                         </tfoot>
                         <tbody>
-                        <c:forEach items="${userList}" var="user">
-                        <tr>
-                            <td>${user.yh_mch}</td>
-                            <td>${user.yh_xm}</td>
-                            <td>${user.yh_xb}</td>
-                            <td>${user.yh_shjh}</td>
-                            <td>${user.yh_yx}</td>
-                            <td>${user.yh_jg}</td>
-                            <td>${user.yh_zht}</td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=delete">删除</a></td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=close">封禁</a></td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=open">解封</a></td>
-
-                        </tr>
+                        <c:forEach items="${orderList}" var="order">
+                            <tr>
+                                <td>${order.dd_id}</td>
+                                <td>${order.shp_mch}</td>
+                                <td>${order.zje}</td>
+                                <td>${order.shhr}</td>
+                                <td>${order.dzh_mch}</td>
+                                <td>${order.chjshj}</td>
+                                <td>${order.jdh}</td>
+                                <td><a href="/order.do?dd_id=${order.dd_id}&_method=delete">删除</a></td>
+                                <td><a href="/order.do?dd_id=${order.dd_id}&_method=update">修改</a></td>
+                            </tr>
                         </c:forEach>
 
                         </tbody>
                     </table>
                 </div>
             </div>
-            </form>
+                    </form>
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
     </div>
+</div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
