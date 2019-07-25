@@ -8,6 +8,15 @@
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page isErrorPage="false" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.mall.service.utils.JdbcUtils" %>
+<%@ page import="org.apache.commons.dbutils.QueryRunner" %>
+<%@ page import="com.mall.service.markAndclass.Mark" %>
+<%@ page import="org.apache.commons.dbutils.handlers.BeanListHandler" %>
+<%@ page import="org.apache.commons.dbutils.ResultSetHandler" %>
+<%@ page import="javax.sql.DataSource" %>
+
 <html>
 <html lang="en">
 
@@ -17,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin - Start Bootstrap Template</title>
+    <title>海哥电脑城</title>
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
@@ -227,18 +236,19 @@
             <div class="card-header">
                 <i class="fa fa-table"></i> 商品上架 </div>
 
-                <div class="card mb-3">
+                <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <div id="dataTable_filter" class="dataTables_filter">
-                            <form action="/addProduct.do" method="post">
-                                    <tr><td class="label">编辑商品名称：</td><td><input name="shp_mch" type="text"  class="addtext"  style=" width:500px;"/></td></tr>
-                                    <tr><td class="label">设置商品分类：</td>
+                            <form action="/addProduct.do" method="post" >
+
+                                    <tr><td class="label">编辑商品名称：</td><td><input name="shp_mch" type="text"  class="form-control"  /></td></tr>
+                                    <tr><td class="label">设置商品分类：<br/></td>
                                         <td>
-                                            <span>一级分类：</span>
-                                            <select name="type1" size="1">
-                                                <option value="0" selected>电脑整机</option>
-                                                <option value="1" >电脑配件</option>
-                                                <option value="2" >电脑外设</option>
+                                            <span onfocus=this.blur()>一级分类：</span>
+                                            <select name="type1" size="1" >
+                                                <option value="0" selected >电脑整机</option>
+                                                <option value="0" >电脑整机</option>
+                                                <option value="0" >电脑整机</option>
                                             </select>
                                             <span>二级分类：</span>
                                             <select name="type2" size="1">
@@ -247,35 +257,69 @@
                                                 <option value="2" >服务器/工作站</option>
                                                 <option value="3" >一体机</option>
                                             </select>
+
                                         </td></tr>
 
                                     </td>
                                     </tr>
-                                    <tr><td class="label">品牌名称：</td><td><input name="ppname" type="text"  class="form-control" ></td></tr>
-                                    <tr><td class="label">商品种类：</td><td><input name="shp_zhl" type="text"  class="form-control" ></td></tr>
-                                    <tr><td class="label">处理器型号：</td><td><input name="cpu" type="text"  class="form-control" ></td></tr>
-                                    <tr><td class="label">内存型号：</td><td><input name="ram" type="text"  class="form-control" ></td></tr>
-                                    <tr><td class="label">硬盘型号：</td><td><input name="caliche" type="text"  class="form-control" ></td></tr>
-                                    <tr><td class="label">显卡型号：</td><td><input name="gpu" type="text"  class="form-control" ></td></tr>
-                                    <tr><td class="label">显示器型号：</td><td><input name="tv" type="text"  class="form-control" ></td></tr>
-                                    <tr><td class="label">价格：</td><td><input name="jg" type="text"  class="form-control" ></td></tr>
-                                    <tr><td class="label">颜色：</td><td><input name="color" type="text"  class="form-control" ></td></tr>
-                                    <tr><td class="label">仓库id：</td><td><input name="ck_id" type="text"  class="form-control" ></td>
-                                        <td class="label">库存数量：</td><td><input name="shp_kc" type="text"  class="form-control" ></td>
-                                    </tr>
-                                    <tr><td class="label">商品概要介绍：</td><td><textarea name="shp_msh" cols="" rows="" placeholder="商品的概要介绍。该介绍将出现在商品名称下方。" class="textarea"></textarea></td></tr>
-<%--                                <tr><td class="label">商品图片名称：</td><td><input name="tu_mch" type="text"  class="form-control" ></td></tr>--%>
-<%--                                <tr><td class="label">商品图片地址：</td><td><input name="tu_dz" type="text"  class="form-control" ></td></tr>--%>
+
+
+                                <%
+                                    List<Mark> list=new ArrayList<>();
+                                    List<String> list1=new ArrayList<String>();
+                                    ResultSet rs=null;
+                                    Mark mark=new Mark();
+                                    Connection connection=null;
+                                    Statement stmt=null;
+                                    String sql="select ppmch from mark";
+                                    connection=JdbcUtils.getConnection();
+                                    stmt=connection.createStatement();
+                                    try{
+                                        rs=stmt.executeQuery(sql) ;
+                                        while(rs.next()){
+                                            list1.add(rs.getString("ppmch"));
+                                        }
+                                    }catch(SQLException ex){
+                                        System.out.println(ex.getMessage());
+                                    }
+
+                                %>
+
+
+                                <tr><td class="label">品牌名称</td><td><select name="ppmch"><%for (int i=0;i<list1.size();i++){
+                                        %><option value=<%=list1.get(i)%>><%=list1.get(i)%></option>
+                                        <%}%>
+                                    </select></td></tr><br/>
+<%--                                    <tr><td class="label">商品种类：</td><td><input name="shp_zhl" type="text"  class="form-control" ></td></tr>--%>
+                                    <tr><td class="label">处理器型号：</td><td><input name="cpu" type="text"  class="form-control" style="width: 150px" ></td></tr>
+                                    <tr><td class="label">内存型号：</td><td><input name="ram" type="text"  class="form-control" style="width: 150px"></td></tr>
+                                    <tr><td class="label">硬盘型号：</td><td><input name="caliche" type="text"  class="form-control" style="width: 150px"></td></tr>
+                                    <tr><td class="label">显卡型号：</td><td><input name="gpu" type="text"  class="form-control" style="width: 150px"></td></tr>
+                                    <tr><td class="label">显示器型号：</td><td><input name="tv" type="text"  class="form-control" style="width: 150px"></td></tr>
+                                    <tr><td class="label">价格：</td><td><input name="jg" type="text"  class="form-control" style="width: 150px"></td></tr>
+                                    <tr><td class="label">颜色：</td><td><input name="color" type="text"  class="form-control" style="width: 150px"></td></tr>
+                                    <tr><td class="label">库存数量：</td><td><input name="shp_kc" type="text"  class="form-control" style="width: 150px"></td></tr>
+
                                 </table>
                                 <input type="submit" value="发布商品" >
 
+
                             </form>
+                            <div class="card-footer small text-muted"></div>
+                        </div>
+                    </div>
+                </div>
         </div>
-    </div>
+
+
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
-
+        <div class="container">
+            <div class="text-center">
+                <small>Copyright © Your Website 2019 / More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家"></a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank"></a></small>
+            </div>
+        </div>
     </footer>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">

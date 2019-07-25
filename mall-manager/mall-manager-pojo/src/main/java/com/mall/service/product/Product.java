@@ -13,12 +13,13 @@ public class Product {
     private Float shp_jg;           //商品价格
     private String shp_ys;          //颜色
     private Integer shp_kc;         //商品库存
+    private String shp_zht;        //商品状态
 
     public Product() {
         super();
     }
 
-    public Product(String shp_id, String shp_mch, Integer flmch1_id, Integer flmch2_id, String pp_id, String chjshj, String shp_msh) {
+    public Product(String shp_id, String shp_mch, Integer flmch1_id, Integer flmch2_id, String pp_id, String chjshj, String shp_msh, Float shp_jg, String shp_ys, Integer shp_kc, String shp_zht) {
         this.shp_id = shp_id;
         this.shp_mch = shp_mch;
         this.flmch1_id = flmch1_id;
@@ -26,6 +27,10 @@ public class Product {
         this.pp_id = pp_id;
         this.chjshj = chjshj;
         this.shp_msh = shp_msh;
+        this.shp_jg = shp_jg;
+        this.shp_ys = shp_ys;
+        this.shp_kc = shp_kc;
+        this.shp_zht = shp_zht;
     }
 
     public Float getShp_jg() {
@@ -108,6 +113,14 @@ public class Product {
         this.shp_msh = shp_msh;
     }
 
+    public String getShp_zht() {
+        return shp_zht;
+    }
+
+    public void setShp_zht(String shp_zht) {
+        this.shp_zht = shp_zht;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -116,11 +129,12 @@ public class Product {
                 ", flmch1_id=" + flmch1_id +
                 ", flmch2_id=" + flmch2_id +
                 ", pp_id='" + pp_id + '\'' +
-                ", chjshj=" + chjshj +
+                ", chjshj='" + chjshj + '\'' +
                 ", shp_msh='" + shp_msh + '\'' +
                 ", shp_jg=" + shp_jg +
                 ", shp_ys='" + shp_ys + '\'' +
                 ", shp_kc=" + shp_kc +
+                ", shp_zht='" + shp_zht + '\'' +
                 '}';
     }
 }

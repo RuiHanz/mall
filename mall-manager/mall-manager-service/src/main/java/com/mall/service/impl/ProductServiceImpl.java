@@ -10,10 +10,10 @@ import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
     @Override
-    public void addProductService(String shp_id, String shp_mch, Integer flmch1_id, Integer flmch2_id, String pp_id, String chjshj, String shp_msh, float shp_jg, String shp_ys, Integer shp_kc) {
+    public void addProductService(String shp_id, String shp_mch, Integer flmch1_id, Integer flmch2_id, String pp_id, String chjshj, String shp_msh, float shp_jg, String shp_ys, Integer shp_kc,String shp_zht) {
 
         ProductDao dao = new ProductDaoImpl();
-        dao.addProduct(shp_id,shp_mch,flmch1_id,flmch2_id,pp_id,chjshj,shp_msh,shp_jg,shp_ys,shp_kc);
+        dao.addProduct(shp_id,shp_mch,flmch1_id,flmch2_id,pp_id,chjshj,shp_msh,shp_jg,shp_ys,shp_kc,shp_zht);
     }
 
     @Override

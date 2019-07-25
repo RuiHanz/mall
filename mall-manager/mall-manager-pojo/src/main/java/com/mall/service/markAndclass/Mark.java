@@ -10,6 +10,10 @@ public class Mark {
         super();
     }
 
+    public Mark(String ppmch) {
+        this.ppmch = ppmch;
+    }
+
     public Mark(String pp_id, String ppmch, String url, Integer flmch1_id) {
         this.pp_id = pp_id;
         this.ppmch = ppmch;

@@ -33,8 +33,7 @@ public class AddProductSevlet extends HttpServlet {
         String shp_mch=req.getParameter("shp_mch");//商品名称
         Integer flmch1_id=Integer.parseInt(req.getParameter("type1"));//一级分类
         Integer flmch2_id=Integer.parseInt(req.getParameter("type2"));//二级分类
-        String ppmch=req.getParameter("ppname");//品牌名称
-        String shp_zhl=req.getParameter("shp_zhl");//商品种类
+        String ppmch=req.getParameter("ppmch");//品牌名称
         String shp_chl=req.getParameter("cpu");//cpu
         String shp_nc=req.getParameter("ram");//RAM
         String shp_yp=req.getParameter("caliche");//caliche
@@ -43,12 +42,12 @@ public class AddProductSevlet extends HttpServlet {
         Integer shp_kc=Integer.parseInt(req.getParameter("shp_kc"));//商品库存
         float shp_jg= Float.parseFloat(req.getParameter("jg"));  //价格
         String shp_ys=req.getParameter("color");//颜色
-        String shp_msh=req.getParameter("shp_msh")+"/"+shp_chl+"/"+shp_nc+"/"+shp_yp+"/"+shp_xk+"/"+shp_xshq;
+        String shp_msh=shp_mch+"/"+shp_chl+"/"+shp_nc+"/"+shp_yp+"/"+shp_xk+"/"+shp_xshq;
 //        System.out.println(shp_id+"--"+flmch1_id+flmch2_id+"--"+ppmch+"--"+shp_zhl+"--"+shp_chl+"--"+shp_nc);
 //        System.out.println(shp_yp+"--"+shp_xk+"--"+shp_xshq+"--"+shp_jg+"--"+shp_ys+"--"+shp_msh);
 
         String chjshj="CURRENT_TIMESTAMP";
-
+        String shp_zht="上架";
         MarkService markService=new MarkServiceImpl();
 
         String pp_id=null;
@@ -60,7 +59,7 @@ public class AddProductSevlet extends HttpServlet {
         System.out.println(pp_id);
 
         ProductService productService=new ProductServiceImpl();
-        productService.addProductService(shp_id,shp_mch,flmch1_id,flmch2_id,pp_id,chjshj,shp_msh,shp_jg,shp_ys,shp_kc);
+        productService.addProductService(shp_id,shp_mch,flmch1_id,flmch2_id,pp_id,chjshj,shp_msh,shp_jg,shp_ys,shp_kc,shp_zht);
 
 
         PrintWriter out = resp.getWriter();

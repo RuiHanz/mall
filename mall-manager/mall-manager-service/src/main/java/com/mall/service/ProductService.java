@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProductService {
     //添加商品
-    public void addProductService(String shp_id, String shp_mch, Integer flmch1_id, Integer flmch2_id, String pp_id, String chjshj, String shp_msh, float shp_jg, String shp_ys, Integer shp_kc);
+    public void addProductService(String shp_id, String shp_mch, Integer flmch1_id, Integer flmch2_id, String pp_id, String chjshj, String shp_msh, float shp_jg, String shp_ys, Integer shp_kc,String shp_zht);
     //查询所有
     public List<Product> selectAllService();
     //查询，按名称

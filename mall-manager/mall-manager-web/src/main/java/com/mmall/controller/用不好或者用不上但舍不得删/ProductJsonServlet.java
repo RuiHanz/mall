@@ -83,7 +83,7 @@ public class ProductJsonServlet extends HttpServlet {
 
         ProductService productService = new ProductServiceImpl();
         productService.addProductService(product.getShp_id(),product.getShp_mch(),product.getFlmch1_id(),
-                product.getFlmch2_id(),product.getPp_id(),product.getChjshj(),product.getShp_msh(),product.getShp_jg(),product.getShp_ys(),product.getShp_kc());
+                product.getFlmch2_id(),product.getPp_id(),product.getChjshj(),product.getShp_msh(),product.getShp_jg(),product.getShp_ys(),product.getShp_kc(),product.getShp_zht());
 
         // 返回JSON数据格式
         JSONObject jsonObjOut = new JSONObject();

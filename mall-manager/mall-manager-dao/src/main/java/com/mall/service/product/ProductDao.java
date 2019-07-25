@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ProductDao {
     //添加商品
-    public void addProduct(String shp_id,String shp_mch,Integer flmch1_id,Integer flmch2_id,String pp_id,String chjshj,String shp_msh,float shp_jg,String shp_ys,Integer shp_kc );
+    public void addProduct(String shp_id,String shp_mch,Integer flmch1_id,Integer flmch2_id,String pp_id,String chjshj,String shp_msh,float shp_jg,String shp_ys,Integer shp_kc,String shp_zht );
 
     //查询全部
     public List<Product> selectAll();

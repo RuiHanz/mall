@@ -14,13 +14,13 @@ public class ProductDaoImpl implements ProductDao {
 
 
     @Override
-    public void addProduct(String shp_id, String shp_mch, Integer flmch1_id, Integer flmch2_id, String pp_id, String chjshj, String shp_msh, float shp_jg, String shp_ys, Integer shp_kc) {
+    public void addProduct(String shp_id, String shp_mch, Integer flmch1_id, Integer flmch2_id, String pp_id, String chjshj, String shp_msh, float shp_jg, String shp_ys, Integer shp_kc,String shp_zht) {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql = "insert into product(shp_id,shp_mch,flmch1_id,flmch2_id,pp_id,chjshj,shp_msh,shp_jg,shp_ys,shp_kc)" +
-                "                value(?,?,?,?,?,date_format(CURRENT_TIMESTAMP,'%Y-%c-%d'),?,?,?,?);";
+        String sql = "insert into product(shp_id,shp_mch,flmch1_id,flmch2_id,pp_id,chjshj,shp_msh,shp_jg,shp_ys,shp_kc,shp_zht)" +
+                "                value(?,?,?,?,?,date_format(CURRENT_TIMESTAMP,'%Y-%c-%d'),?,?,?,?,?);";
         try {
 
-            qr.update(sql,shp_id,shp_mch,flmch1_id,flmch2_id,pp_id,shp_msh,shp_jg,shp_ys,shp_kc);
+            qr.update(sql,shp_id,shp_mch,flmch1_id,flmch2_id,pp_id,shp_msh,shp_jg,shp_ys,shp_kc,shp_zht);
         } catch (SQLException e) {
             e.printStackTrace();
         }
