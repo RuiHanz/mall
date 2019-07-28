@@ -1,9 +1,12 @@
 package com.mall.service.impl;
 
 import com.mall.service.UserService;
+import com.mall.service.impl.user.User1DaoImpl;
 import com.mall.service.impl.user.UserDaoImpl;
 import com.mall.service.user.IUserDao;
 import com.mall.service.user.User;
+import com.mall.service.user.UserDao;
+import com.mall.service.utils.PageBean;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -78,6 +81,24 @@ public class UserServiceImpl implements UserService {
         Integer i=0;
         i=dao.deleteUser(yh_id);
         return i;
+    }
+
+    @Override
+    public void getAllService(PageBean<User> pageBean) throws SQLException {
+        UserDao dao = new User1DaoImpl();
+        dao.getAll(pageBean);
+    }
+
+    @Override
+    public void getByYh_mchService(PageBean<User> pageBean, String yh_mch) throws SQLException {
+        UserDao dao = new User1DaoImpl();
+        dao.getByYh_mch(pageBean,yh_mch);
+    }
+
+    @Override
+    public void getByYh_shjhService(PageBean<User> pageBean, String yh_shjh) throws SQLException {
+        UserDao dao = new User1DaoImpl();
+        dao.getByYh_shjh(pageBean,yh_shjh);
     }
 
 

@@ -1,6 +1,8 @@
 package com.mall.service;
 
+import com.mall.service.product.Product1;
 import com.mall.service.user.User;
+import com.mall.service.utils.PageBean;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -32,4 +34,12 @@ public interface UserService {
 
     //删除用户
     public Integer deleteUserService(String yh_id);
+    /* 分页查询数据
+     * */
+    public  void  getAllService(PageBean<User> pageBean) throws SQLException;
+
+    //查询 按名称
+    public void getByYh_mchService(PageBean<User> pageBean,String yh_mch) throws SQLException;
+    //查询 按手机号
+    public void getByYh_shjhService(PageBean<User> pageBean,String yh_shjh) throws SQLException;
 }

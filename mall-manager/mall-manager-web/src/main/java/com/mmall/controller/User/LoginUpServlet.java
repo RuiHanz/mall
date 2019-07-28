@@ -36,7 +36,7 @@ public class LoginUpServlet extends HttpServlet {
 //        }
         if ("18303412059".equals(yh_shjh)&&"abcd986532".equals(yh_mm)){
             PrintWriter out = resp.getWriter();
-            out.print("<script>alert('登录成功成功!');window.location.href='index.jsp'</script>");
+            out.print("<script>alert('登录成功!');window.location.href='tables.jsp'</script>");
         }else {
             PrintWriter out = resp.getWriter();
             out.print("<script>alert('用户名或密码错误!');window.location.href='login.jsp'</script>");

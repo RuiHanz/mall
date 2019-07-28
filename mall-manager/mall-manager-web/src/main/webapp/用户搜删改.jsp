@@ -226,19 +226,20 @@
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fa fa-table"></i> 用户管理 </div>
-            <form action="/selectUser.do" method="post">
+            <form action="/selectUser.do" method="post" style="margin: 30px 30px ">
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
-                        <div id="dataTable_filter" class="dataTables_filter">
+                        <div id="dataTable_filter" class="dataTables_filter form-inline">
 
                             <label>
-                                <input name="select" type="submit" value="搜 索"  class="Search_btn"/>
-                                <select name="selectType" size="1">
+
+                                <select name="selectType" size="1" class="form-control">
                                     <option value="0" selected>全部</option>
                                     <option value="1" >用户名称</option>
                                     <option value="2" >用户手机号</option>
-                                </select>
-                                <input type="search" name="searchName" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
+                                </select>&nbsp;&nbsp;
+                                <input type="search" name="searchName" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">&nbsp;&nbsp;
+                                <input name="select" type="submit" class="btn btn-primary" value="搜 索"  class="Search_btn"/>
                             </label>
                         </div>
                     </div>
@@ -249,51 +250,67 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>用户名称</th>
-                            <th>用户姓名</th>
-                            <th>用户性别</th>
-                            <th>用户手机号</th>
-                            <th>用户邮箱</th>
-                            <th>用户住址</th>
-                            <th>用户状态</th>
-                            <th>操作</th>
+                            <th align="center" style="text-align: center">用户名称</th>
+                            <th align="center" style="text-align: center">用户姓名</th>
+                            <th align="center" style="text-align: center">用户性别</th>
+                            <th align="center" style="text-align: center">用户手机号</th>
+                            <th align="center" style="text-align: center">用户邮箱</th>
+                            <th align="center" style="text-align: center">用户住址</th>
+                            <th align="center" style="text-align: center">用户状态</th>
+                            <th align="center" style="text-align: center" colspan="3">操作</th>
                         </tr>
                         </thead>
-                        <tfoot>
-                        <tr>
-                            <th>用户名称</th>
-                            <th>用户姓名</th>
-                            <th>用户性别</th>
-                            <th>用户手机号</th>
-                            <th>用户邮箱</th>
-                            <th>用户住址</th>
-                            <th>用户状态</th>
-                            <th>操作</th>
-                        </tr>
-                        </tfoot>
                         <tbody>
-                        <c:forEach items="${userList}" var="user">
+                        <c:forEach var="user" items="${pageBean.list}" varStatus="vs">
+<%--                        <c:forEach items="${userList}" var="user">--%>
                         <tr>
-                            <td>${user.yh_mch}</td>
-                            <td>${user.yh_xm}</td>
-                            <td>${user.yh_xb}</td>
-                            <td>${user.yh_shjh}</td>
-                            <td>${user.yh_yx}</td>
-                            <td>${user.yh_jg}</td>
-                            <td>${user.yh_zht}</td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=delete">删除</a></td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=close">封禁</a></td>
-                            <td><a href="/updateUser.do?yh_id=${user.yh_id}&handle=open">解封</a></td>
+
+                            <td align="center">${user.yh_mch}</td>
+                            <td align="center">${user.yh_xm}</td>
+                            <c:if test="${user.yh_xb == '1'}">
+                                <td align="center">男</td>
+                            </c:if>
+                            <c:if test="${user.yh_xb == '0'}">
+                                <td align="center">女</td>
+                            </c:if>
+                            <c:if test="${user.yh_xb == ''}">
+                                <td align="center">男</td>
+                            </c:if>
+
+                            <td align="center">${user.yh_shjh}</td>
+                            <td align="center">${user.yh_yx}</td>
+                            <td align="center">${user.yh_jg}</td>
+                            <c:if test="${user.yh_zht == '0'}">
+                                <td align="center">正常</td>
+                            </c:if>
+                            <c:if test="${user.yh_zht == '1'}">
+                                <td align="center">封禁</td>
+                            </c:if>
+                            <td align="center"><a href="javascript:if(confirm('确定删除吗?'))location='/updateUser.do?yh_id=${user.yh_id}&currentPage=${requestScope.pageBean.currentPage}&handle=delete';">删除</a></td>
+                            <td align="center"><a href="javascript:if(confirm('确定封禁吗?'))location='/updateUser.do?yh_id=${user.yh_id}&currentPage=${requestScope.pageBean.currentPage}&handle=close';">封禁</a></td>
+
+                            <td align="center"><a href="javascript:if(confirm('确定解封吗?'))location='/updateUser.do?yh_id=${user.yh_id}&currentPage=${requestScope.pageBean.currentPage}&handle=open';">解封</a></td>
 
                         </tr>
                         </c:forEach>
 
                         </tbody>
+                        <tr>
+                             <td colspan="10" align="right" >
+
+                             <a href="${pageContext.request.contextPath }/selectUser.do?selectType=0&currentPage=1">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             <a href="${pageContext.request.contextPath }/selectUser.do?selectType=0&currentPage=${requestScope.pageBean.currentPage - 1}">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             <a href="${pageContext.request.contextPath }/selectUser.do?selectType=0&currentPage=${requestScope.pageBean.currentPage + 1}">下一页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             <a href="${pageContext.request.contextPath }/selectUser.do?selectType=0&currentPage=${requestScope.pageBean.totalPage}">末页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <font face="微软雅黑">第</font>${requestScope.pageBean.currentPage}<font face="微软雅黑">页/共</font>${requestScope.pageBean.totalPage}<font face="微软雅黑">页</font>
+                                
+                        </td>
+                        </tr>
                     </table>
                 </div>
             </div>
             </form>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+<%--            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>--%>
         </div>
     </div>
     <!-- /.container-fluid-->
@@ -301,7 +318,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Your Website 2017 / More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></small>
+                <small>Copyright © 海哥电脑城 2019 / 后端管理 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">海哥电脑城</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">海哥之家</a></small>
             </div>
         </div>
     </footer>

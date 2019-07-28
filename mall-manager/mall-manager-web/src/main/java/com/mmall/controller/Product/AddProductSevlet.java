@@ -42,7 +42,7 @@ public class AddProductSevlet extends HttpServlet {
         Integer shp_kc=Integer.parseInt(req.getParameter("shp_kc"));//商品库存
         float shp_jg= Float.parseFloat(req.getParameter("jg"));  //价格
         String shp_ys=req.getParameter("color");//颜色
-        String shp_msh=shp_mch+"/"+shp_chl+"/"+shp_nc+"/"+shp_yp+"/"+shp_xk+"/"+shp_xshq;
+        String shp_msh=shp_mch+"/"+shp_chl+"/"+shp_nc+"/"+shp_yp+"/"+shp_xk+"/"+shp_xshq+"/"+shp_ys;
 //        System.out.println(shp_id+"--"+flmch1_id+flmch2_id+"--"+ppmch+"--"+shp_zhl+"--"+shp_chl+"--"+shp_nc);
 //        System.out.println(shp_yp+"--"+shp_xk+"--"+shp_xshq+"--"+shp_jg+"--"+shp_ys+"--"+shp_msh);
 

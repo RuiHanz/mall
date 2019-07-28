@@ -1,12 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2019-7-18
-  Time: 8:57
+  Date: 2019-07-25
+  Time: 21:01
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
-<%@ page import="com.mall.service.order.Order" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page isErrorPage="false" %>
 <html>
@@ -27,6 +26,10 @@
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+
+    <link href="jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+    <link href="jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <link href="js/layer/2.4/skin/layer.css" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -38,6 +41,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
@@ -58,6 +62,17 @@
                     </li>
                 </ul>
             </li>
+            <%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">--%>
+            <%--                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">--%>
+            <%--                    <i class="fa fa-fw fa-wrench"></i>--%>
+            <%--                    <span class="nav-link-text">用户管理</span>--%>
+            <%--                </a>--%>
+            <%--                <ul class="sidenav-second-level collapse" id="collapseComponents">--%>
+            <%--                    <li>--%>
+            <%--                        <a href="用户搜删改.jsp">用户查询、删除、封禁与解封</a>--%>
+            <%--                    </li>--%>
+            <%--                </ul>--%>
+            <%--            </li>--%>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-sitemap"></i>
@@ -81,7 +96,34 @@
                     <span class="nav-link-text">评论管理</span>
                 </a>
             </li>
-
+            <%--                    <li>--%>
+            <%--                        <a href="#">Second Level Item</a>--%>
+            <%--                    </li>--%>
+            <%--                    <li>--%>
+            <%--                        <a href="#">Second Level Item</a>--%>
+            <%--                    </li>--%>
+            <%--                    <li>--%>
+            <%--                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>--%>
+            <%--                        <ul class="sidenav-third-level collapse" id="collapseMulti2">--%>
+            <%--                            <li>--%>
+            <%--                                <a href="#">Third Level Item</a>--%>
+            <%--                            </li>--%>
+            <%--                            <li>--%>
+            <%--                                <a href="#">Third Level Item</a>--%>
+            <%--                            </li>--%>
+            <%--                            <li>--%>
+            <%--                                <a href="#">Third Level Item</a>--%>
+            <%--                            </li>--%>
+            <%--                        </ul>--%>
+            <%--                    </li>--%>
+        </ul>
+        </li>
+        <%--            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">--%>
+        <%--                <a class="nav-link" href="#">--%>
+        <%--                    <i class="fa fa-fw fa-link"></i>--%>
+        <%--                    <span class="nav-link-text">Link</span>--%>
+        <%--                </a>--%>
+        <%--            </li>--%>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
@@ -94,7 +136,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-envelope"></i>
-                    <span class="d-lg-none">Messages
+                    <span class="d-lg-none">信息
               <span class="badge badge-pill badge-primary">12 New</span>
             </span>
                     <span class="indicator text-primary d-none d-lg-block">
@@ -102,7 +144,7 @@
             </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-                    <h6 class="dropdown-header">New Messages:</h6>
+                    <h6 class="dropdown-header">信息:</h6>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">
                         <strong>David Miller</strong>
@@ -168,7 +210,6 @@
                     <a class="dropdown-item small" href="#">View all alerts</a>
                 </div>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-fw fa-sign-out"></i>Logout</a>
@@ -176,87 +217,152 @@
         </ul>
     </div>
 </nav>
+
 <div class="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">订单管理</a>
+                <a href="ordertables.jsp">订单管理</a>
             </li>
+            <%--<li class="breadcrumb-item active">订单管理</li>--%>
         </ol>
+
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> 订单表</div>
+                <i class="fa fa-table"></i> 订单列表 </div>
 
-                    <form action="/order.do" method="post">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                                <div id="dataTable_filter" class="dataTables_filter">
+            <form action="/selectOrder.do" method="post" style="margin: 30px 30px ">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div id="dataTable_filter" class="dataTables_filter form-inline">
 
-                                    <label>
-                                        <a href="/order.do?_method=insert" class="Search_btn">显示订单</a>
-                                    </label>
-                            </div>
+                            <label>
+
+                                <select name="selectType" size="1" class="form-control">
+                                    <option value="0" selected>全部</option>
+                                    <option value="1" >订单编号</option>
+                                    <option value="2" >收货人</option>
+                                    <option value="3"> 商品名称</option>
+                                </select>&nbsp;&nbsp;
+                                <input type="search" name="searchName" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">&nbsp;&nbsp;
+                                <input name="select" type="submit" value="搜 索"  class="btn btn-primary"/>
+                            </label>
                         </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                        <tr>
-                            <th>订单编号</th>
-                            <th>商品名称</th>
-                            <th>总价</th>
-                            <th>收货人</th>
-                            <th>收货地址</th>
-                            <th>创建时间</th>
-                            <th>订单进度号</th>
-                            <th colspan="2" >操作</th>
-                        </tr>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                            <th>订单编号</th>
-                            <th>商品名称</th>
-                            <th>总价</th>
-                            <th>收货人</th>
-                            <th>收货地址</th>
-                            <th>创建时间</th>
-                            <th>订单进度号</th>
-                            <th colspan="2">操作</th>
-                        </tr>
-                        </tfoot>
-                        <tbody>
-                        <c:forEach items="${orderList}" var="order">
-                            <tr>
-                                <td>${order.dd_id}</td>
-                                <td>${order.shp_mch}</td>
-                                <td>${order.zje}</td>
-                                <td>${order.shhr}</td>
-                                <td>${order.dzh_mch}</td>
-                                <td>${order.chjshj}</td>
-                                <td>${order.jdh}</td>
-                                <td><a href="/order.do?dd_id=${order.dd_id}&_method=delete">删除</a></td>
-                                <td><a href="/order.do?dd_id=${order.dd_id}&_method=update">修改</a></td>
-                            </tr>
-                        </c:forEach>
-
-                        </tbody>
-                    </table>
+                    </div>
                 </div>
-            </div>
-                    </form>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="gridtable" width="100%" cellspacing="0" >
+                            <thead>
+                            <tr>
+                                <th align="center" style="text-align: center">订单编号</th>
+                                <th align="center" style="text-align: center" valign="middle">商品名称</th>
+                                <th align="center" style="text-align: center">总价</th>
+                                <th align="center" style="text-align: center">收货人</th>
+                                <th align="center" style="text-align: center">收货地址</th>
+                                <th align="center" style="text-align: center">创建时间</th>
+                                <th align="center" style="text-align: center">订单进度</th>
+                                <th align="center" style="text-align: center" colspan="2" valign="middle">操作</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                                    
+                                        <c:forEach var="order" items="${pageBean.list}" varStatus="vs">
+
+                                <%--                        <c:forEach items="${productList}"  var="product" >--%>
+
+                                <tr>
+                                    <td>${order.dd_id}</td>
+                                    <td>${order.shp_mch}</td>
+                                    <td>${order.zje}</td>
+                                    <td>${order.shhr}</td>
+                                    <td>${order.dzh_mch}</td>
+                                    <td>${order.chjshj}</td>
+                                    <c:if test="${order.jdh=='0'}">
+                                        <td>未支付</td>
+                                    </c:if>
+                                    <c:if test="${order.jdh=='1'}">
+                                        <td>已支付</td>
+                                    </c:if>
+                                    <c:if test="${order.jdh=='2'}">
+                                        <td>待评价</td>
+                                    </c:if>
+                                    <td align="center"><a href="/updateOrder.do?dd_id=${order.dd_id}&currentPage=${requestScope.pageBean.currentPage}&handle=update">修改</a></td>
+                                    <td align="center"><a href="javascript:if(confirm('确定删除吗?'))location='/updateOrder.do?dd_id=${order.dd_id}&currentPage=${requestScope.pageBean.currentPage}&handle=delete';">删除</a></td>
+                                </tr>
+                            </c:forEach>
+
+                            </tbody>
+                            <tr>
+                                            <td colspan="12" align="right">
+                                            <a href="${pageContext.request.contextPath }/selectOrder.do?selectType=0&currentPage=1">首页</a>
+                                            <a href="${pageContext.request.contextPath }/selectOrder.do?selectType=0&currentPage=${requestScope.pageBean.currentPage - 1}">上一页</a>
+                                            <a href="${pageContext.request.contextPath }/selectOrder.do?selectType=0&currentPage=${requestScope.pageBean.currentPage + 1}">下一页</a>
+                                            <a href="${pageContext.request.contextPath }/selectOrder.do?selectType=0&currentPage=${requestScope.pageBean.totalPage}">末页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            第${requestScope.pageBean.currentPage}页/共${requestScope.pageBean.totalPage}页                
+                            </td>
+                                        </tr>
+
+                        </table>
+
+                    </div>
+                </div>
+            </form>
+
+            <%--            <script>--%>
+            <%--                function deleteProduct(shp_id){--%>
+            <%--                    if(window.confirm('你确定要删除吗')){--%>
+            <%--                        //后台删除数据方法--%>
+            <%--                        window.location.href="/update.do?shp_id="+shp_id+"&handle=delete";--%>
+            <%--                        return true;--%>
+            <%--                    }else{--%>
+            <%--                        return false;--%>
+            <%--                    }--%>
+            <%--                }--%>
+            <%--            </script>--%>
+
+
+
+            <%--            <script>--%>
+            <%--                // 开始--%>
+            <%--                function deleteProduct(obj,shp_id) {--%>
+            <%--                    layer.confirm('删除须谨慎，确认要删除吗？',function(index){--%>
+            <%--                    // 将id封装为JSON格式数据--%>
+            <%--                    var data = {};--%>
+            <%--                    data.shp_id = shp_id;--%>
+            <%--                    var dataStr = JSON.stringify(data);--%>
+            <%--                        $.ajax({--%>
+            <%--                            type: "POST",--%>
+            <%--                            url : "/update.do?shp_id=${product.shp_id}&handle=delete",--%>
+            <%--                            data: dataStr,--%>
+            <%--                            dataType: "json",--%>
+            <%--                            success: function(data) {--%>
+            <%--                                if (data.isSuccess) {--%>
+            <%--                                    $(obj).parents("tr").remove();--%>
+            <%--                                    layer.msg('已删除!',{icon:1,time:1000});--%>
+            <%--                                }--%>
+            <%--                            },--%>
+            <%--                            error: function() {--%>
+            <%--                                console.log("ajax error");--%>
+            <%--                            },--%>
+            <%--                        });--%>
+            <%--                    })--%>
+            <%--            }--%>
+
+
+            <%--            </script>--%>
         </div>
     </div>
-</div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Your Website 2017 / More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></small>
             </div>
         </div>
     </footer>
@@ -294,6 +400,12 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
+
+    <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="js/jquery.serializejson.min.js"></script>
+    <script src="js/layer/2.4/layer.js"></script>
+
 </div>
 </body>
 

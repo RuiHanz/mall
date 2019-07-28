@@ -229,7 +229,9 @@
             <div class="card mb-3">
 
                 <c:forEach items="${shp_id}" var="shp_id">
-                <form action="/addProductImage.do" method="post">
+                    <c:forEach items="${currentPage}" var="currentPage">
+                <form action="/addProductImage.do?&currentPage=${currentPage}" method="post">
+                    </c:forEach>
                     <tr><td class="label" >商品id：</td><td><input name="shp_id" type="text" size="1px" value=${shp_id.toString()} ></td>></tr>>
                     <tr><td class="label">图片名称：</td><td><input name="tu_mch" type="text"  class="form-control"  ></td></tr>
                     <tr><td class="label">图片作用：</td><td><input name="zy" type="text"  class="form-control"  ></td></tr>

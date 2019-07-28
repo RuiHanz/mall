@@ -231,20 +231,26 @@
                 <div class="card mb-3">
                     <div class="col-sm-12 col-md-6">
                         <div id="dataTable_filter" class="dataTables_filter">
-                            <form action="/addMark.do" method="post">
-                                    <tr><td class="label">品牌名称：</td><td><input name="ppmch" type="text"  class="form-control" ></td></tr>
-                                    <tr><td class="label">品牌图片：</td><td><input name="url" type="text"  class="form-control" ></td></tr>
+                            <form action="/addMark.do" method="post" style="margin: 30px 30px ">
+                                    <tr><td class="label">品牌名称：</td><td><input name="ppmch" type="text"  class="form-control" ></td></tr><br/>
+                                    <tr><td class="label">品牌图片：</td><td><input name="url" type="text"  class="form-control" ></td></tr><br/>
 
-                                <input type="submit" value="提交品牌" >
+                                <input type="submit" class="btn btn-primary" value="提交品牌" style="margin-right: 200px">
 
                             </form>
+                        </div>
+                    </div>
+                </div>
         </div>
-    </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-
-    </footer>
+                    <footer class="sticky-footer">
+                        <div class="container">
+                            <div class="text-center">
+                                <small>Copyright © 海哥电脑城 2019 / 后端管理 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">海哥电脑城</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">海哥之家</a></small>
+                            </div>
+                        </div>
+                    </footer>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>

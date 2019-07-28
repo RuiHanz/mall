@@ -225,21 +225,24 @@
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> 商品修改 </div>
+                <i class="fa fa-table"></i> 品牌修改 </div>
             <div class="card mb-3">
                 <c:forEach items="${markList}" var="mark">
                     <c:forEach items="${id}" var="id">
-                <form action="/updateMark2.do" method="post">
-                    <tr><td class="label" >品牌原id：</td><td><input name="id" type="text" size="1px" value=${id.toString()} ></td>></tr>>
-                    <tr><td class="label">品牌现id：</td><td><input name="pp_id" type="text"  class="form-control"  value=${mark.pp_id}></td></tr>
-                    <tr><td class="label">品牌名称：</td><td><input name="ppmch" type="text"  class="form-control"  value=${mark.ppmch}></td></tr>
-                    <tr><td class="label">品牌图片地址：</td><td><input name="url" type="text"  class="form-control"  value=${mark.url}></td></tr>
+                    <c:forEach items="${currentPage}" var="currentPage">
+                <form action="/updateMark2.do?id=${id.toString()}&currentPage=${currentPage}" method="post" style="margin: 30px 30px ">
+                    </c:forEach>
+<%--
+<tr><td class="label" >品牌原id：</td><td><input name="id" type="text" size="1px" value=${id.toString()} ></td>></tr>><br/>--%>
+                    <tr><td class="label">品牌现id：</td><td><input name="pp_id" type="text"  class="form-control"  value=${mark.pp_id}></td></tr><br/>
+                    <tr><td class="label">品牌名称：</td><td><input name="ppmch" type="text"  class="form-control"  value=${mark.ppmch}></td></tr><br/>
+                    <tr><td class="label">品牌图片地址：</td><td><input name="url" type="text"  class="form-control"  value=${mark.url}></td></tr><br/>
 
                     </c:forEach>
                     </c:forEach>
                             </td>
                             </tr>
-                            <input type="submit" value="更改品牌 " >
+                            <input type="submit" value="更改品牌 " class="btn btn-primary">
                         </form>
                     </div>
 

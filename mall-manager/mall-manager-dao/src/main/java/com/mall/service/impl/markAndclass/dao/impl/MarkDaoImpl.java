@@ -41,6 +41,15 @@ public class MarkDaoImpl implements MarkDao {
     }
 
     @Override
+    public Mark selectMarkNameById(String pp_id) throws SQLException {
+        QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
+        String sql="select ppmch from mark where pp_id=?";
+        Mark mark=qr.query(sql,new BeanHandler<>(Mark.class),pp_id);
+        return mark;
+
+    }
+
+    @Override
     public List<Mark> selectMarkByName(String ppmch) throws SQLException {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
         String sql="select pp_id,ppmch,url from mark where ppmch=?";

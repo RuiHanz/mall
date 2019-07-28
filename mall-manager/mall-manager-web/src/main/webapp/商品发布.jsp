@@ -239,24 +239,24 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <div id="dataTable_filter" class="dataTables_filter">
-                            <form action="/addProduct.do" method="post" >
+                            <form action="/addProduct.do" style="margin-left:50px;margin-top: 10px " method="post" >
 
-                                    <tr><td class="label">编辑商品名称：</td><td><input name="shp_mch" type="text"  class="form-control"  /></td></tr>
-                                    <tr><td class="label">设置商品分类：<br/></td>
+                                    <tr><td class="label">编辑商品名称：</td><br/><td><br/><input name="shp_mch" type="text"  class="form-control"  /></td></tr><br/>
+                                    <tr><td class="label">设置商品分类：<br/></td><br/>
                                         <td>
-                                            <span onfocus=this.blur()>一级分类：</span>
-                                            <select name="type1" size="1" >
+                                            <span >一级分类：</span>
+                                            <select name="type1" size="1" class="custom-select" >
                                                 <option value="0" selected >电脑整机</option>
                                                 <option value="0" >电脑整机</option>
                                                 <option value="0" >电脑整机</option>
-                                            </select>
+                                            </select>&nbsp;&nbsp;
                                             <span>二级分类：</span>
-                                            <select name="type2" size="1">
+                                            <select name="type2" size="1" class="custom-select">
                                                 <option value="0" selected>笔记本电脑</option>
                                                 <option value="1" >台式机</option>
                                                 <option value="2" >服务器/工作站</option>
                                                 <option value="3" >一体机</option>
-                                            </select>
+                                            </select><br/>
 
                                         </td></tr>
 
@@ -286,22 +286,87 @@
                                 %>
 
 
-                                <tr><td class="label">品牌名称</td><td><select name="ppmch"><%for (int i=0;i<list1.size();i++){
+                                <br/><tr><td class="label">品牌名称：</td><td><select name="ppmch" class="custom-select"><%for (int i=0;i<list1.size();i++){
                                         %><option value=<%=list1.get(i)%>><%=list1.get(i)%></option>
                                         <%}%>
-                                    </select></td></tr><br/>
+                                    </select></td></tr>&nbsp;&nbsp;
 <%--                                    <tr><td class="label">商品种类：</td><td><input name="shp_zhl" type="text"  class="form-control" ></td></tr>--%>
-                                    <tr><td class="label">处理器型号：</td><td><input name="cpu" type="text"  class="form-control" style="width: 150px" ></td></tr>
-                                    <tr><td class="label">内存型号：</td><td><input name="ram" type="text"  class="form-control" style="width: 150px"></td></tr>
-                                    <tr><td class="label">硬盘型号：</td><td><input name="caliche" type="text"  class="form-control" style="width: 150px"></td></tr>
-                                    <tr><td class="label">显卡型号：</td><td><input name="gpu" type="text"  class="form-control" style="width: 150px"></td></tr>
-                                    <tr><td class="label">显示器型号：</td><td><input name="tv" type="text"  class="form-control" style="width: 150px"></td></tr>
-                                    <tr><td class="label">价格：</td><td><input name="jg" type="text"  class="form-control" style="width: 150px"></td></tr>
-                                    <tr><td class="label">颜色：</td><td><input name="color" type="text"  class="form-control" style="width: 150px"></td></tr>
-                                    <tr><td class="label">库存数量：</td><td><input name="shp_kc" type="text"  class="form-control" style="width: 150px"></td></tr>
+                                <span>处理器型号：</span>
+                                <select name="cpu"  class="custom-select">
+                                    <option value="i3" selected>i3</option>
+                                    <option value="i5" >i5</option>
+                                    <option value="i7" >i7</option>
+                                    <option value="奔腾处理器" >奔腾处理器</option>
+                                    <option value="迈腾处理器" >迈腾处理器</option>
+                                </select><br/><br/>
 
-                                </table>
-                                <input type="submit" value="发布商品" >
+
+
+
+<%--                                <tr>处理器型号：<td><input name="cpu" type="text" class="form-control"  style="width: 150px" placeholder="处理器型号"></td></tr>--%>
+                                <span>内存型号：</span>
+                                <select name="ram" class="custom-select">
+                                    <option value="4G" selected>4G</option>
+                                    <option value="8G" >8G</option>
+                                    <option value="16G" >16G</option>
+                                </select>&nbsp;&nbsp;
+<%--                                <tr><td class="label">内存型号：</td><td><input name="ram" type="text"  class="form-control" style="width: 150px"></td></tr>--%>
+                                <span>硬盘型号：</span>
+                                <select name="caliche" class="custom-select">
+                                    <option value="西数500G" selected>西数500G</option>
+                                    <option value="西数1T" >西数1T</option>
+                                    <option value="西数2T" >西数2T</option>
+                                </select><br/>
+<%--                                <tr><td class="label">硬盘型号：</td><td><input name="caliche" type="text"  class="form-control" style="width: 150px"></td></tr>--%>
+                                <br/><span>显卡型号：</span>
+                                <select name="gpu" class="custom-select">
+                                    <option value="GTX950" selected>GTX950</option>
+                                    <option value="GTX960" >GTX960</option>
+                                    <option value="GTX1050Ti" >GTX1050Ti</option>
+                                    <option value="GTX970" >GTX970</option>
+                                    <option value="GTX1060" >GTX1060</option>
+                                    <option value="GTX980Ti" >GTX980Ti</option>
+                                    <option value="GTXTitanZ" >GTXTitanZ</option>
+                                    <option value="GTXTitanX" >GTXTitanX</option>
+                                    <option value="GTX1070" >GTX1070</option>
+                                    <option value="GTX1070Ti" >GTX1070Ti</option>
+                                    <option value="GTX1080" >GTX1080</option>
+                                    <option value="GTX1070Ti" >GTX1070Ti</option>
+                                    <option value="RTX2080" >RTX2080</option>
+                                    <option value="RTX2080Ti" >RTX2080Ti</option>
+                                    <option value="TitanRTX" >TitanRTX</option>
+                                </select>&nbsp;&nbsp;
+<%--                                <tr><td class="label">显卡型号：</td><td><input name="gpu" type="text"  class="form-control" style="width: 150px"></td></tr>--%>
+                                <span>显示器型号：</span>
+                                <select name="tv" class="custom-select">
+                                    <option value="三星60HZ" selected>三星60HZ</option>
+                                    <option value="京东方60HZ" >京东方60HZ</option>
+                                    <option value="三星90HZ" >三星90HZ</option>
+                                    <option value="京东方90HZ" >京东方90HZ</option>
+                                    <option value="三星144HZ" >三星144HZ</option>
+                                    <option value="京东方144HZ" >京东方144HZ</option>
+                                </select><br/>
+<%--                                <tr><td class="label">显示器型号：</td><td><input name="tv" type="text"  class="form-control" style="width: 150px"></td></tr>--%>
+                                <br/><td class="label">价格：</td><input type="text" name="jg" onkeyup="this.value=this.value.replace(/\D/g,'')"><br/>
+                            <%--                                <tr><td class="label">价格：</td><td><input name="jg" type="text"  class="form-control" style="width: 150px"></td></tr>--%>
+
+                                <br/><span>颜色：</span>
+                                <select name="color" class="custom-select">
+                                    <option value="红色" selected>红色</option>
+                                    <option value="黑色" >黑色</option>
+                                    <option value="银色" >银色</option>
+                                    <option value="白色" >白色</option>
+                                    <option value="金色" >金色</option>
+                                    <option value="黄色" >黄色</option>
+                                </select>&nbsp;&nbsp;
+<%--                                <tr><td class="label">颜色：</td><td><input name="color" type="text"  class="form-control" style="width: 150px"></td></tr>--%>
+
+                                <td class="label">库存数量：</td><input type="text"  name="shp_kc" onkeyup="this.value=this.value.replace(/\D/g,'')"><br/>
+
+<%--                                <tr><td class="label">库存数量：</td><td><input name="shp_kc" type="text"  class="form-control" style="width: 150px"></td></tr>--%>
+<%--                                    <tr><td class="label">商品概要介绍：</td><td><textarea name="shp_msh" cols="" rows="" placeholder="商品的概要介绍。该介绍将出现在商品名称下方。" class="textarea"></textarea></td></tr>--%>
+                                </table><br/>
+                                <input type="submit" class="btn btn-primary" value="发布商品" >
 
 
                             </form>
@@ -317,7 +382,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Your Website 2019 / More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家"></a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank"></a></small>
+                <small>Copyright © 海哥电脑城 2019 / 后端管理 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家"></a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank"></a></small>
             </div>
         </div>
     </footer>

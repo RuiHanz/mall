@@ -6,6 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<%@ page import="com.mall.service.markAndclass.Mark" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="com.mall.service.utils.JdbcUtils" %>
+<%@ page import="java.sql.SQLException" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page isErrorPage="false" %>
 <html>
@@ -218,9 +224,9 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
+                <a href="#">商品管理</a>
             </li>
-            <li class="breadcrumb-item active">Tables</li>
+            <li class="breadcrumb-item active">更改商品</li>
         </ol>
 
         <!-- Example DataTables Card-->
@@ -230,24 +236,54 @@
             <div class="card mb-3">
                 <c:forEach items="${productList}" var="product">
                 <c:forEach items="${id}" var="id">
-                <form action="/updateProduct2.do" method="post">
-                    <tr><td class="label" >商品原id：</td><td><input name="id" type="text" size="1px" value=${id.toString()} ></td>></tr>>
-                    <tr><td class="label">商品现id：</td><td><input name="shp_id" type="text"  class="form-control"  value=${product.shp_id}></td></tr>
-                    <tr><td class="label">商品名称：</td><td><input name="shp_mch" type="text"  class="form-control"  value=${product.shp_mch}></td></tr>
-                    <tr><td class="label">分类1ID：</td><td><input name="flmch1_id" type="text"  class="form-control"  value=${product.flmch1_id}></td></tr>
-                    <tr><td class="label">分类2ID：</td><td><input name="flmch2_id" type="text"  class="form-control"  value=${product.flmch2_id}></td></tr>
-                    <tr><td class="label">品牌ID：</td><td><input name="pp_id" type="text"  class="form-control" value=${product.pp_id}></td></tr>
-                    <tr><td class="label">颜色：</td><td><input name="shp_ys" type="text"  class="form-control"  value=${product.shp_ys}></td></tr>
-                    <tr><td class="label">商品库存：</td><td><input name="shp_kc" type="text"  class="form-control"  value=${product.shp_kc}></td></tr>
-                    <tr><td class="label">商品价格：</td><td><input name="shp_jg" type="text"  class="form-control"  value=${product.shp_jg}></td></tr>
-                    <tr><td class="label">商品描述：</td><td><input name="shp_msh" type="text"  class="form-control" value=${product.shp_msh}></td></tr>
-                    <tr><td class="label">创建时间：</td><td><input name="chjshj" type="text"  class="form-control"  value=${product.chjshj}></td></tr>
+                    <c:forEach items="${currentPage}" var="currentPage">
+                <form action="/updateProduct2.do?id=${id.toString()}&currentPage=${currentPage}" style="margin-left:50px;margin-top: 10px " method="post">
+                    </c:forEach>
+<%--                    <tr><td class="label">商品原id：</td><td><input name="id" type="text" size="1px" value=${id.toString()} ></td></tr><br/>--%>
+                    <tr><td class="label">商品现id：</td><td><input name="shp_id" type="text" style="width: 350px" class="form-control"  value=${product.shp_id}></td></tr><br/>
+                    <tr><td class="label">商品名称：</td><td><input name="shp_mch" type="text" style="width: 250px"  class="form-control"  value=${product.shp_mch}></td></tr><br/>
+                    <tr><td class="label">分类名称：</td><td><input name="flmch2" type="text" style="width: 250px"  class="form-control"  value=${product.flmch2}></td></tr><br/>
+
+    <%
+        List<Mark> list=new ArrayList<>();
+        List<String> list1=new ArrayList<String>();
+        ResultSet rs=null;
+        Mark mark=new Mark();
+        Connection connection=null;
+        Statement stmt=null;
+        String sql="select ppmch from mark";
+        connection= JdbcUtils.getConnection();
+        stmt=connection.createStatement();
+        try{
+            rs=stmt.executeQuery(sql) ;
+            while(rs.next()){
+                list1.add(rs.getString("ppmch"));
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+
+    %>
+
+
+
+
+    <tr><td class="label">品牌名称：</td><td><select name="ppmch" class="custom-select"><br/>
+        <option value=${product.ppmch} selected>${product.ppmch}</option>
+        <%for (int i=0;i<list1.size();i++){
+        %>
+        <option value=<%=list1.get(i)%>><%=list1.get(i)%></option>
+        <%}%>
+    </select></td></tr><br/>
+                    <tr><td class="label">商品库存：</td><td><input name="shp_kc" type="text" style="width: 250px"  class="form-control"  value=${product.shp_kc}></td></tr><br/>
+                    <tr><td class="label">商品价格：</td><td><input name="shp_jg" type="text" style="width: 250px"  class="form-control"  value=${product.shp_jg}></td></tr><br/>
+                    <tr><td class="label">创建时间：</td><td><input name="chjshj" type="text" style="width: 250px"  class="form-control"  value=${product.chjshj}></td></tr><br/>
                     </c:forEach>
                     </c:forEach>
 
                             </td>
                             </tr>
-                            <input type="submit" value="更改商品 " >
+                            <input type="submit"  class="btn btn-primary" value="更改商品 " >
                         </form>
                     </div>
 
@@ -258,7 +294,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Your Website 2017 / More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></small>
+                <small>Copyright © 海哥电脑城 2019 / 后端管理 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">海哥电脑城</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">海哥之家</a></small>
             </div>
         </div>
     </footer>

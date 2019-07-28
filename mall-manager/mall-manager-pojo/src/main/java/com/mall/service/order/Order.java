@@ -4,16 +4,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Order {
-    private String  dd_id;
-    private String  yh_id;
-    private String  mai_id;
-    private float zje;
-    private String shhr;
-    private String dzh_mch;
-    private String  shp_mch;
-    private Integer jdh;
-    private String chjshj;
-    private String yjsdshj;
+    private String  dd_id; //订单编号
+    private String  yh_id; //用户编号
+    private String  mai_id; //卖家编号
+    private float zje;  //总价
+    private String shhr; //收货人
+    private String dzh_mch; //收货地址
+    private String  shp_mch;  //商品名称
+    private Integer jdh; //订单进度
+    private String chjshj; //创建时间
+    private String yjsdshj; //预计送达时间
     //无参构造
 
     public Order() {

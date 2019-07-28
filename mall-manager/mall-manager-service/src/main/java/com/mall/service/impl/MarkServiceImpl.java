@@ -1,9 +1,12 @@
 package com.mall.service.impl;
 
 import com.mall.service.MarkService;
+import com.mall.service.impl.markAndclass.dao.impl.Mark1DaoImpl;
 import com.mall.service.impl.markAndclass.dao.impl.MarkDaoImpl;
+import com.mall.service.markAndclass.IMarkDao;
 import com.mall.service.markAndclass.Mark;
 import com.mall.service.markAndclass.MarkDao;
+import com.mall.service.utils.PageBean;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -53,10 +56,29 @@ public class MarkServiceImpl implements MarkService {
     }
 
     @Override
+    public Mark selectMarkNameByIdService(String pp_id) throws SQLException {
+        MarkDao dao=new MarkDaoImpl();
+        Mark mark=dao.selectMarkNameById(pp_id);
+        return mark;
+    }
+
+    @Override
     public List<Mark> selectMarkByNameService(String ppmch) throws SQLException {
         MarkDao dao=new MarkDaoImpl();
         List<Mark> mark=null;
         mark=dao.selectMarkByName(ppmch);
         return mark;
+    }
+
+    @Override
+    public void getAllService(PageBean<Mark> pageBean) throws SQLException {
+        IMarkDao dao = new Mark1DaoImpl();
+        dao.getAll(pageBean);
+    }
+
+    @Override
+    public void getByPpmchService(PageBean<Mark> pageBean, String ppmch) throws SQLException {
+        IMarkDao dao=new Mark1DaoImpl();
+        dao.getByPpmch(pageBean,ppmch);
     }
 }

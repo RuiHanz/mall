@@ -1,14 +1,14 @@
 package com.mall.service.Comment;
 
 public class Comment {
-    private String pl_id;
-    private String yh_id;
-    private String shp_id;
-    private String plnr;
-    private String plshj;
-    private int hpjb;
-    private String shp_mch;
-    private String dd_id;
+    private String pl_id; //评价id
+    private String yh_id; //用户id
+    private String shp_id;//商品id
+    private String plnr; //评价内容
+    private String plshj;//评论时间
+    private int hpjb;//好评级别
+    private String shp_mch; //商品名称
+    private String dd_id; //订单编号
 
     public Comment() {
     }

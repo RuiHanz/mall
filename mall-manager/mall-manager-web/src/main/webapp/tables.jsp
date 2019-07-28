@@ -26,6 +26,10 @@
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+
+    <link href="jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+    <link href="jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <link href="js/layer/2.4/skin/layer.css" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -208,7 +212,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                    <i class="fa fa-fw fa-sign-out"></i>登出</a>
             </li>
         </ul>
     </div>
@@ -227,20 +231,22 @@
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fa fa-table"></i> 商品管理 </div>
-            <form action="/select.do" method="post">
+
+            <form action="/select.do" method="post" style="margin: 30px 30px ">
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
-                        <div id="dataTable_filter" class="dataTables_filter">
+                        <div id="dataTable_filter" class="dataTables_filter form-inline">
 
                             <label>
-                                <input name="select" type="submit" value="搜 索"  class="Search_btn"/>
-                                <select name="selectType" size="1">
+
+                                <select name="selectType" size="1" class="form-control">
                                     <option value="0" selected>全部</option>
                                     <option value="1" >商品名称</option>
                                     <option value="2" >商品id</option>
-                                    <option value="3"> 关键词</option>>
-                                </select>
-                                <input type="search" name="searchName" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
+                                    <option value="3"> 关键词</option>
+                                </select>&nbsp;&nbsp;
+                                <input type="search" name="searchName" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">&nbsp;&nbsp;
+                                <input name="select" type="submit" value="搜 索"  class="btn btn-primary"/>
                             </label>
                         </div>
                     </div>
@@ -248,55 +254,107 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                    <table class="table table-bordered" id="gridtable" width="100%" cellspacing="0" >
                         <thead>
                         <tr>
-                            <th>商品名称</th>
-                            <th>商品分类1</th>
-                            <th>商品分类2</th>
-                            <th>品牌名称</th>
-                            <th>颜色</th>
-                            <th>商品价格</th>
-                            <th>商品库存</th>
-                            <th>创建时间</th>
-                            <th>操作</th>
+                            <th align="center" style="text-align: center" valign="middle">商品名称</th>
+                            <th align="center" style="text-align: center">商品分类名称</th>
+                            <th align="center" style="text-align: center">品牌名称</th>
+                            <th align="center" style="text-align: center" valign="middle">商品描述</th>
+                            <th align="center" style="text-align: center">商品价格</th>
+                            <th align="center" style="text-align: center">商品状态</th>
+                            <th align="center" style="text-align: center">商品库存</th>
+                            <th align="center" style="text-align: center">创建时间</th>
+                            <th align="center" style="text-align: center" colspan="4" valign="middle">操作</th>
                         </tr>
                         </thead>
-                        <tfoot>
-                        <tr>
-                            <th>商品名称</th>
-                            <th>商品分类1</th>
-                            <th>商品分类2</th>
-                            <th>品牌id</th>
-                            <th>颜色</th>
-                            <th>商品价格</th>
-                            <th>商品库存</th>
-                            <th>创建时间</th>
-                            <th>操作</th>
-                        </tr>
-                        </tfoot>
+
                         <tbody>
-                        <c:forEach items="${productList}" var="product">
+
+                        
+                            <c:forEach var="product" items="${pageBean.list}" varStatus="vs">
+
+<%--                        <c:forEach items="${productList}"  var="product" >--%>
+
                         <tr>
-                            <td>${product.shp_mch}</td>
-                            <td>${product.flmch1_id}</td>
-                            <td>${product.flmch2_id}</td>
-                            <td>${product.pp_id}</td>
-                            <td>${product.shp_ys}</td>
-                            <td>${product.shp_jg}</td>
-                            <td>${product.shp_kc}</td>y
-                            <td>${product.chjshj}</td>
-                            <td><a href="/update.do?shp_id=${product.shp_id}&handle=update">修改</a></td>
-                            <td><a href="/update.do?shp_id=${product.shp_id}&handle=delete">删除</a></td>
-                            <td><a href="/update.do?shp_id=${product.shp_id}&handle=addPicture">填图</a></td>
+                            <td align="center">${product.shp_mch}</td>
+                            <td align="center">${product.flmch2}</td>
+                            <td align="center">${product.ppmch}</td>
+                            <td align="center">${product.shp_msh}</td>
+                            <td align="center">${product.shp_jg}</td>
+                            <td align="center">${product.shp_zht}</td>
+                            <td align="center">${product.shp_kc}</td>
+                            <td align="center">${product.chjshj}</td>
+                            <td align="center"><a href="/update.do?shp_id=${product.shp_id}&currentPage=${requestScope.pageBean.currentPage}&handle=update">修改</a></td>
+<%--                            <td align="center"><a href="/update.do?shp_id=${product.shp_id}&handle=delete">删除</a></td>--%>
+                            <td align="center"><a href="javascript:if(confirm('确定删除吗?'))location='/update.do?shp_id=${product.shp_id}&currentPage=${requestScope.pageBean.currentPage}&handle=delete';">删除</a></td>
+                            <td align="center"><a href="/update.do?shp_id=${product.shp_id}&currentPage=${requestScope.pageBean.currentPage}&handle=addPicture">填图</a></td>
+                            <td align="center"><a href="javascript:if(confirm('确定改变商品状态吗?'))location='/update.do?shp_id=${product.shp_id}&currentPage=${requestScope.pageBean.currentPage}&handle=change';">改变状态</a></td>
                         </tr>
                         </c:forEach>
 
+
                         </tbody>
+                        <tr>
+                            <td colspan="12" align="right">
+
+                            <a href="${pageContext.request.contextPath }/select.do?selectType=0&currentPage=1">首页</a>
+                            <a href="${pageContext.request.contextPath }/select.do?selectType=0&currentPage=${requestScope.pageBean.currentPage - 1}">上一页</a>
+                            <a href="${pageContext.request.contextPath }/select.do?selectType=0&currentPage=${requestScope.pageBean.currentPage + 1}">下一页</a>
+                            <a href="${pageContext.request.contextPath }/select.do?selectType=0&currentPage=${requestScope.pageBean.totalPage}">末页</a>
+                            第${requestScope.pageBean.currentPage}页/共${requestScope.pageBean.totalPage}页    
+                            </td>
+                        </tr>
+
                     </table>
+
                 </div>
             </div>
             </form>
+
+<%--            <script>--%>
+<%--                function deleteProduct(shp_id){--%>
+<%--                    if(window.confirm('你确定要删除吗')){--%>
+<%--                        //后台删除数据方法--%>
+<%--                        window.location.href="/update.do?shp_id="+shp_id+"&handle=delete";--%>
+<%--                        return true;--%>
+<%--                    }else{--%>
+<%--                        return false;--%>
+<%--                    }--%>
+<%--                }--%>
+<%--            </script>--%>
+
+
+
+        <%--            <script>--%>
+<%--                // 开始--%>
+<%--                function deleteProduct(obj,shp_id) {--%>
+<%--                    layer.confirm('删除须谨慎，确认要删除吗？',function(index){--%>
+<%--                    // 将id封装为JSON格式数据--%>
+<%--                    var data = {};--%>
+<%--                    data.shp_id = shp_id;--%>
+<%--                    var dataStr = JSON.stringify(data);--%>
+<%--                        $.ajax({--%>
+<%--                            type: "POST",--%>
+<%--                            url : "/update.do?shp_id=${product.shp_id}&handle=delete",--%>
+<%--                            data: dataStr,--%>
+<%--                            dataType: "json",--%>
+<%--                            success: function(data) {--%>
+<%--                                if (data.isSuccess) {--%>
+<%--                                    $(obj).parents("tr").remove();--%>
+<%--                                    layer.msg('已删除!',{icon:1,time:1000});--%>
+<%--                                }--%>
+<%--                            },--%>
+<%--                            error: function() {--%>
+<%--                                console.log("ajax error");--%>
+<%--                            },--%>
+<%--                        });--%>
+<%--                    })--%>
+<%--            }--%>
+
+
+<%--            </script>--%>
         </div>
     </div>
     <!-- /.container-fluid-->
@@ -316,15 +374,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">确认退出吗?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">如果准备结束当前会话，请选择下面的“注销”。</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.jsp">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+                    <a class="btn btn-primary" href="login.jsp">注销</a>
                 </div>
             </div>
         </div>
@@ -341,6 +399,12 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
+
+    <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="js/jquery.serializejson.min.js"></script>
+    <script src="js/layer/2.4/layer.js"></script>
+
 </div>
 </body>
 

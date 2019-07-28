@@ -12,6 +12,7 @@ public interface MarkDao {
 
     //查询品牌按id
     public List<Mark> selectMarkById(String pp_id) throws SQLException;
+    public Mark    selectMarkNameById(String pp_id) throws SQLException;
     //查询品牌按名称
     public List<Mark> selectMarkByName(String ppmch) throws SQLException;
 

@@ -1,3 +1,13 @@
+
+
+.quantity-remove, .quantity-add {
+  cursor: pointer;
+}
+.quantity-add.glyphicon, .quantity-remove.glyphicon {
+  display: block;
+  cursor: pointer;
+}
+
 table.dataTable {
   clear: both;
   margin-top: 6px !important;

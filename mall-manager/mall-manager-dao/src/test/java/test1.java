@@ -7,6 +7,7 @@ import com.mall.service.impl.user.UserDaoImpl;
 import com.mall.service.markAndclass.Mark;
 import com.mall.service.markAndclass.MarkDao;
 import com.mall.service.product.Product;
+import com.mall.service.product.Product1;
 import com.mall.service.product.ProductDao;
 import com.mall.service.product.ProductImages;
 import com.mall.service.user.IUserDao;
@@ -132,5 +133,21 @@ public class test1 {
 
 
     }
+    @Test
+    public void testDemo14() throws SQLException {
+        MarkDao dao=new MarkDaoImpl();
+
+        Mark name=dao.selectMarkNameById("828F855C3B85448584C3FD888ABA39A3");
+        System.out.println(name.getPpmch());
+
+
+    }
+    @Test
+    public void testDemo15() throws SQLException {
+        ProductDao dao=new ProductDaoImpl();
+        List<Product1> product1List=dao.selectAll1();
+
+    }
+
 
 }
